@@ -5,7 +5,7 @@
         http://www.sitemaps.org/schemas/sitemap/0.9/sitemap.xsd">
   <!-- Akbar Hari Mukti - Portfolio Main Page -->
   <url>
-    <loc>https://akbarharimukti.com/</loc>
+    <loc>https://akbarhari.vercel.app/</loc>
     <lastmod>2026-10-10</lastmod>
     <changefreq>monthly</changefreq>
     <priority>1.0</priority>
@@ -13,7 +13,7 @@
 
   <!-- PDF Portfolio Asset -->
   <url>
-    <loc>https://akbarharimukti.com/assets/pdf/akbar_hari_portfolio_2026.pdf</loc>
+    <loc>https://akbarhari.vercel.app/assets/pdf/akbar_hari_portfolio_2026.pdf</loc>
     <lastmod>2026-10-10</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>

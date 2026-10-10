@@ -3,4 +3,4 @@ User-agent: *
 Allow: /
 
 # Sitemap Location
-Sitemap: https://akbarharimukti.com/sitemap.xml
+Sitemap: https://akbarhari.vercel.app/sitemap.xml
