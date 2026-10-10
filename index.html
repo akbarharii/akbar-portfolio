@@ -66,6 +66,255 @@
   <link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,300;400;500;600;700;800&family=JetBrains+Mono:wght@400;500;600;700&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="css/style.css">
   <link rel="icon" type="image/jpeg" href="assets/thumbs/akbar_avatar.jpg">
+
+  <!-- Self-contained Responsive & Accordion Overhauls (Khusus index.html) -->
+  <style>
+    /* Mobile-First Header & Navbar Cleanups */
+    @media (max-width: 768px) {
+      .header .navbar {
+        height: 60px !important;
+      }
+      .nav-brand .brand-title {
+        display: none !important;
+      }
+      .nav-actions .btn-wa-header,
+      .nav-actions .status-badge {
+        display: none !important; /* Hide wide navbar buttons on mobile to prevent overflow */
+      }
+      .btn-contact-nav-trigger {
+        display: inline-flex !important;
+      }
+      .hero {
+        padding: 3rem 0 2rem !important;
+      }
+      .hero-title {
+        font-size: 2.25rem !important;
+        line-height: 1.15 !important;
+      }
+      .hero-subtitle {
+        font-size: 1rem !important;
+        line-height: 1.6 !important;
+      }
+      .hero-stats-row {
+        grid-template-columns: repeat(2, 1fr) !important;
+        gap: 1.25rem !important;
+      }
+      .stat-number {
+        font-size: 1.6rem !important;
+      }
+      .hero-avatar-img {
+        height: 260px !important;
+      }
+      .who-am-i-container {
+        grid-template-columns: 1fr !important;
+        gap: 1.5rem !important;
+      }
+      .who-card-main {
+        padding: 1.5rem !important;
+      }
+      .capabilities-list-box {
+        padding: 1.25rem !important;
+      }
+      .filter-toolbar {
+        gap: 0.35rem !important;
+        overflow-x: auto;
+        padding-bottom: 0.5rem;
+        flex-wrap: nowrap !important;
+      }
+      .filter-btn {
+        white-space: nowrap !important;
+      }
+      .footer-content {
+        flex-direction: column !important;
+        align-items: center !important;
+        text-align: center;
+        gap: 1.25rem !important;
+      }
+      .footer-links {
+        flex-wrap: wrap !important;
+        justify-content: center !important;
+        gap: 0.85rem !important;
+      }
+    }
+
+    /* Quick Contact Nav Button (Mobile Friendly) */
+    .btn-contact-nav-trigger {
+      display: none;
+      align-items: center;
+      gap: 6px;
+      padding: 5px 12px;
+      border-radius: var(--radius-full);
+      background: rgba(245, 79, 27, 0.15);
+      border: 1px solid var(--accent-orange);
+      color: #fff;
+      font-size: 0.76rem;
+      font-family: var(--font-mono);
+      cursor: pointer;
+    }
+
+    /* Expand / Collapse Accordion Component */
+    .accordion-item {
+      border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+      padding: 0.75rem 0;
+      transition: background 0.2s ease;
+    }
+    .accordion-item:last-child {
+      border-bottom: none;
+    }
+    .accordion-summary {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      cursor: pointer;
+      list-style: none;
+      user-select: none;
+      padding: 0.35rem 0;
+    }
+    .accordion-summary::-webkit-details-marker {
+      display: none;
+    }
+    .accordion-title-wrap {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+    .accordion-badge {
+      font-family: var(--font-mono);
+      font-size: 0.7rem;
+      font-weight: 700;
+      padding: 3px 8px;
+      border-radius: var(--radius-xs);
+      background: rgba(30, 5, 193, 0.25);
+      border: 1px solid rgba(30, 5, 193, 0.5);
+      color: #a5b4fc;
+      flex-shrink: 0;
+    }
+    .accordion-title {
+      font-size: 0.96rem;
+      font-weight: 700;
+      color: var(--text-main);
+    }
+    .accordion-icon {
+      width: 18px;
+      height: 18px;
+      color: var(--text-muted);
+      transition: transform 0.25s ease, color 0.25s ease;
+      flex-shrink: 0;
+    }
+    details[open] .accordion-icon {
+      transform: rotate(180deg);
+      color: var(--accent-orange);
+    }
+    details[open] .accordion-title {
+      color: var(--accent-orange);
+    }
+    .accordion-content {
+      padding: 0.5rem 0 0.5rem 2rem;
+      font-size: 0.86rem;
+      color: var(--text-secondary);
+      line-height: 1.6;
+    }
+
+    /* Contact Popup Modal */
+    .contact-popup-backdrop {
+      position: fixed;
+      inset: 0;
+      background: rgba(0, 0, 0, 0.88);
+      backdrop-filter: blur(14px);
+      -webkit-backdrop-filter: blur(14px);
+      z-index: 1050;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 1.25rem;
+      opacity: 0;
+      pointer-events: none;
+      transition: opacity 0.25s ease;
+    }
+    .contact-popup-backdrop.open {
+      opacity: 1;
+      pointer-events: auto;
+    }
+    .contact-popup-card {
+      background: #0d0f14;
+      border: 1px solid rgba(255, 255, 255, 0.15);
+      border-radius: var(--radius-md);
+      width: 100%;
+      max-width: 420px;
+      padding: 1.75rem;
+      position: relative;
+      box-shadow: 0 25px 60px rgba(0, 0, 0, 0.9);
+      transform: translateY(14px);
+      transition: transform 0.25s ease;
+    }
+    .contact-popup-backdrop.open .contact-popup-card {
+      transform: translateY(0);
+    }
+    .contact-popup-close {
+      position: absolute;
+      top: 14px;
+      right: 14px;
+      background: transparent;
+      border: 1px solid rgba(255, 255, 255, 0.1);
+      color: var(--text-secondary);
+      width: 32px;
+      height: 32px;
+      border-radius: var(--radius-xs);
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+    .contact-popup-title {
+      font-size: 1.35rem;
+      font-weight: 800;
+      margin-bottom: 0.35rem;
+      color: #fff;
+    }
+    .contact-popup-sub {
+      font-size: 0.88rem;
+      color: var(--text-secondary);
+      margin-bottom: 1.5rem;
+    }
+    .popup-contact-list {
+      display: flex;
+      flex-direction: column;
+      gap: 0.75rem;
+      margin-bottom: 1.25rem;
+    }
+    .popup-contact-btn {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 0.85rem 1rem;
+      border-radius: var(--radius-sm);
+      background: #131720;
+      border: 1px solid rgba(255, 255, 255, 0.08);
+      color: var(--text-main);
+      transition: all 0.2s ease;
+    }
+    .popup-contact-btn:hover {
+      background: #181d28;
+      border-color: var(--accent-orange);
+    }
+    .popup-contact-info {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      font-size: 0.88rem;
+    }
+    .popup-contact-info svg {
+      width: 18px;
+      height: 18px;
+      color: var(--accent-orange);
+      flex-shrink: 0;
+    }
+    .popup-action-tag {
+      font-family: var(--font-mono);
+      font-size: 0.72rem;
+      color: var(--accent-orange);
+    }
+  </style>
 </head>
 <body>
   <!-- Ambient Atmospheric Tones (#1E05C1 & #F54F1B) -->
@@ -94,18 +343,21 @@
           <li><a href="#contact" class="nav-link">Contact</a></li>
         </ul>
 
-        <!-- Action & Direct WhatsApp Contact -->
+        <!-- Action Area: Desktop WA button + Mobile Popup Trigger -->
         <div class="nav-actions">
-          <div class="status-badge">
-            <span class="pulse-dot"></span>
-            Available for Work
-          </div>
           <a href="https://wa.me/6285839328549" target="_blank" rel="noopener noreferrer" class="btn btn-wa-header" title="Chat via WhatsApp">
             <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor">
               <path d="M12.04 2c-5.46 0-9.91 4.45-9.91 9.91 0 1.75.46 3.45 1.32 4.95L2.05 22l5.25-1.38c1.45.79 3.08 1.21 4.74 1.21 5.46 0 9.91-4.45 9.91-9.91 0-2.65-1.03-5.14-2.9-7.01A9.82 9.82 0 0 0 12.04 2m.01 1.67c2.2 0 4.26.86 5.82 2.42a8.23 8.23 0 0 1 2.41 5.83c0 4.54-3.7 8.24-8.24 8.24-1.42 0-2.82-.37-4.06-1.07l-.29-.17-3.12.82.83-3.04-.19-.3a8.2 8.2 0 0 1-1.26-4.48c0-4.54 3.7-8.24 8.24-8.24m4.52 11.66c-.25-.13-1.47-.72-1.7-.8-.23-.09-.39-.13-.56.13-.17.25-.65.8-.8 1-.14.19-.29.22-.54.09-.25-.13-1.05-.39-2-1.23-.74-.66-1.24-1.47-1.39-1.72-.14-.25-.02-.39.11-.51.11-.11.25-.29.38-.43.12-.15.17-.25.25-.42.08-.17.04-.32-.02-.45-.06-.13-.56-1.35-.77-1.85-.2-.49-.41-.42-.56-.43h-.48c-.17 0-.44.06-.67.31-.23.25-.88.86-.88 2.1 0 1.24.9 2.44 1.03 2.61.13.17 1.78 2.71 4.3 3.8.6.26 1.07.42 1.44.54.61.19 1.16.17 1.6.1 1.49-.18 1.83-1.08 1.83-1.57 0-.17-.06-.29-.12-.39z"/>
             </svg>
             <span>WA: 085839328549</span>
           </a>
+
+          <!-- Mobile Quick Contact Button -->
+          <button class="btn-contact-nav-trigger" data-open-contact-popup aria-label="Buka popup kontak">
+            <span>Kontak</span>
+          </button>
+
+          <!-- Mobile Menu Drawer Toggle -->
           <button class="mobile-toggle" id="mobile-menu-toggle" aria-label="Toggle navigation menu">
             <span></span>
             <span></span>
@@ -116,15 +368,17 @@
     </div>
   </header>
 
-  <!-- Mobile Drawer Menu -->
+  <!-- Mobile Drawer Menu (Uncluttered) -->
   <div class="mobile-nav" id="mobile-nav-drawer">
     <a href="#home">Home</a>
     <a href="#about">Who Am I</a>
     <a href="#process">Design Process</a>
     <a href="#projects">Projects (50+ Done)</a>
     <a href="#toolkit">Toolkit</a>
-    <a href="https://wa.me/6285839328549" target="_blank">Chat WA: 085839328549</a>
-    <a href="#contact">Contact & Socials</a>
+    <!-- Contact Popup Trigger Inside Mobile Menu -->
+    <a href="#" data-open-contact-popup style="color: var(--accent-orange); font-weight: 700;">
+      💬 Hubungi WhatsApp & Info Kontak
+    </a>
   </div>
 
   <main>
@@ -134,41 +388,42 @@
         <div class="hero-grid">
           <!-- Text Content -->
           <div class="hero-text-col">
+            <!-- Simplified meta badge without excessive labels -->
             <div class="hero-meta-bar">
-              <span class="hero-badge">Product Designer • Web Dev • Product Manager • Trainer UI/UX</span>
+              <span class="hero-badge">Product Designer & Specialist</span>
             </div>
 
-            <!-- Requested Hero Headline -->
+            <!-- Headline -->
             <h1 class="hero-title">
               Simplifying complexity through <span class="accent-orange">thoughtful</span> <span class="accent-blue">design.</span>
             </h1>
 
-            <!-- Requested Hero Sub-headline -->
+            <!-- Sub-headline -->
             <p class="hero-subtitle">
               Hi, I'm <strong>Akbar Hari Mukti</strong>, a Product Designer with <strong>5+ years of experience</strong> creating intuitive, scalable digital experiences across fintech, crypto, enterprise, and IoT.
             </p>
 
             <div class="hero-cta-group">
               <a href="#projects" class="btn btn-primary">
-                Explore Selected Works
+                Explore Works
                 <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
                   <path d="M5 12h14M12 5l7 7-7 7"/>
                 </svg>
               </a>
 
-              <!-- Direct WhatsApp Button -->
+              <!-- WhatsApp Action Button -->
               <a href="https://wa.me/6285839328549" target="_blank" rel="noopener noreferrer" class="btn btn-wa-hero">
                 <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor">
                   <path d="M12.04 2c-5.46 0-9.91 4.45-9.91 9.91 0 1.75.46 3.45 1.32 4.95L2.05 22l5.25-1.38c1.45.79 3.08 1.21 4.74 1.21 5.46 0 9.91-4.45 9.91-9.91 0-2.65-1.03-5.14-2.9-7.01A9.82 9.82 0 0 0 12.04 2m.01 1.67c2.2 0 4.26.86 5.82 2.42a8.23 8.23 0 0 1 2.41 5.83c0 4.54-3.7 8.24-8.24 8.24-1.42 0-2.82-.37-4.06-1.07l-.29-.17-3.12.82.83-3.04-.19-.3a8.2 8.2 0 0 1-1.26-4.48c0-4.54 3.7-8.24 8.24-8.24m4.52 11.66c-.25-.13-1.47-.72-1.7-.8-.23-.09-.39-.13-.56.13-.17.25-.65.8-.8 1-.14.19-.29.22-.54.09-.25-.13-1.05-.39-2-1.23-.74-.66-1.24-1.47-1.39-1.72-.14-.25-.02-.39.11-.51.11-.11.25-.29.38-.43.12-.15.17-.25.25-.42.08-.17.04-.32-.02-.45-.06-.13-.56-1.35-.77-1.85-.2-.49-.41-.42-.56-.43h-.48c-.17 0-.44.06-.67.31-.23.25-.88.86-.88 2.1 0 1.24.9 2.44 1.03 2.61.13.17 1.78 2.71 4.3 3.8.6.26 1.07.42 1.44.54.61.19 1.16.17 1.6.1 1.49-.18 1.83-1.08 1.83-1.57 0-.17-.06-.29-.12-.39z"/>
                 </svg>
-                <span>Get in Touch: 085839328549</span>
+                <span>WA: 085839328549</span>
               </a>
 
               <a href="assets/pdf/akbar_hari_portfolio_2026.pdf" download="Akbar_Hari_Mukti_Portfolio.pdf" class="btn btn-secondary">
                 <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
                   <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4M7 10l5 5 5-5M12 15V3"/>
                 </svg>
-                Download PDF
+                PDF
               </a>
             </div>
 
@@ -198,7 +453,7 @@
               </a>
             </div>
 
-            <!-- Stats Bar (Updated to 50+ Projects Done) -->
+            <!-- Stats Bar -->
             <div class="hero-stats-row">
               <div class="stat-item">
                 <span class="stat-number">5<span class="plus">+</span></span>
@@ -219,20 +474,15 @@
             </div>
           </div>
 
-          <!-- Hero Visual Card with User's Uploaded Photo -->
+          <!-- Hero Visual Card (Clean, Uncluttered) -->
           <div class="hero-visual-col">
             <div class="hero-visual-card">
-              <div class="hero-visual-header">
-                <span class="card-label">PORTFOLIO // AKBAR HARI MUKTI</span>
-                <span class="card-year-stamp">2026</span>
-              </div>
-
               <div class="hero-avatar-wrapper">
                 <img src="assets/thumbs/akbar_avatar.jpg" alt="Akbar Hari Mukti - Product Designer & UI/UX Specialist" class="hero-avatar-img">
                 <div class="hero-avatar-overlay">
                   <div>
                     <div class="avatar-info-name">Akbar Hari Mukti</div>
-                    <div class="avatar-info-role">Product Designer & UI/UX Specialist</div>
+                    <div class="avatar-info-role">Product Designer & Specialist</div>
                   </div>
                 </div>
               </div>
@@ -242,14 +492,13 @@
       </div>
     </section>
 
-    <!-- Who Am I Section -->
+    <!-- Who Am I Section with Expand/Collapse Accordion -->
     <section class="section-about" id="about">
       <div class="container">
         <div class="section-header">
-          <span class="section-tag">Identity & Expertise</span>
           <h2 class="section-title">Who Am I</h2>
           <p class="section-desc">
-            A versatile product designer blending user research, product management strategy, web engineering, and UX mentorship.
+            A versatile product designer blending user research, product management strategy, web development, and UX mentorship.
           </p>
         </div>
 
@@ -260,52 +509,82 @@
               I am <strong>Akbar Hari Mukti</strong>, a Product Designer with <strong>5+ years of experience</strong> designing scalable digital products across <strong>fintech, crypto, enterprise platforms, smart mobility, and IoT</strong>.
             </p>
             <p class="who-sub-text">
-              I combine deep user insights, business strategy, and structured design thinking to create intuitive experiences that solve real problems. My career spans not only end-to-end interface design, but also bridging product strategy and technical implementation.
+              I combine deep user insights, business strategy, and structured design thinking to create intuitive experiences that solve real problems. My career spans not only interface design, but also product strategy and technical execution.
             </p>
             <p class="who-sub-text">
-              Passionate about collaborating with cross-functional teams, I regularly facilitate <strong>qualitative user interviews</strong>, define product requirements as a <strong>Product Manager</strong>, build accessible web solutions via <strong>Web Development & WordPress</strong>, and empower the design community as an active <strong>UI/UX Trainer & Mentor</strong>.
+              Passionate about cross-functional collaboration, I regularly lead <strong>user interviews</strong>, define product requirements as a <strong>Product Manager</strong>, build accessible web solutions via <strong>Web Development & WordPress</strong>, and mentor emerging talent as a <strong>UI/UX Trainer</strong>.
             </p>
           </div>
 
-          <!-- Multifaceted Capabilities Box -->
+          <!-- Expand / Collapse Capabilities Accordion -->
           <div class="capabilities-list-box">
-            <div class="capabilities-header">Extended Capabilities & Roles</div>
+            <div style="font-family: var(--font-mono); font-size: 0.8rem; color: var(--accent-orange); margin-bottom: 1rem; text-transform: uppercase;">
+              Extended Capabilities (Tap to Expand)
+            </div>
 
             <!-- Item 1: Product Manager -->
-            <div class="capability-item">
-              <span class="capability-badge">PM</span>
-              <div class="capability-content">
-                <h4>Product Manager</h4>
-                <p>Aligning user pain points with business goals, roadmap planning, feature prioritization, and engineering sprint execution.</p>
+            <details class="accordion-item" open>
+              <summary class="accordion-summary">
+                <div class="accordion-title-wrap">
+                  <span class="accordion-badge">PM</span>
+                  <span class="accordion-title">Product Manager</span>
+                </div>
+                <svg class="accordion-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                  <polyline points="6 9 12 15 18 9"/>
+                </svg>
+              </summary>
+              <div class="accordion-content">
+                Aligning user pain points with business objectives, roadmap planning, feature prioritization, KPI benchmarking, and cross-functional engineering sprints.
               </div>
-            </div>
+            </details>
 
             <!-- Item 2: User Interview -->
-            <div class="capability-item">
-              <span class="capability-badge">Research</span>
-              <div class="capability-content">
-                <h4>Interview User & Research</h4>
-                <p>Conducting 1-on-1 contextual user interviews, heuristic analysis, and usability testing to unlock validated behavioral insights.</p>
+            <details class="accordion-item">
+              <summary class="accordion-summary">
+                <div class="accordion-title-wrap">
+                  <span class="accordion-badge" style="background: rgba(245, 79, 27, 0.15); border-color: rgba(245, 79, 27, 0.4); color: var(--accent-orange);">Research</span>
+                  <span class="accordion-title">Interview User & Research</span>
+                </div>
+                <svg class="accordion-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                  <polyline points="6 9 12 15 18 9"/>
+                </svg>
+              </summary>
+              <div class="accordion-content">
+                Conducting 1-on-1 contextual user interviews, heuristic analysis, usability testing, and synthesis matrices to uncover behavioral insights.
               </div>
-            </div>
+            </details>
 
             <!-- Item 3: Web Dev & WordPress -->
-            <div class="capability-item">
-              <span class="capability-badge">Code</span>
-              <div class="capability-content">
-                <h4>Web Development & WordPress</h4>
-                <p>Hands-on development with modern HTML/CSS/JS and WordPress CMS, turning visual designs into production-ready web platforms.</p>
+            <details class="accordion-item">
+              <summary class="accordion-summary">
+                <div class="accordion-title-wrap">
+                  <span class="accordion-badge">Code</span>
+                  <span class="accordion-title">Web Development & WordPress</span>
+                </div>
+                <svg class="accordion-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                  <polyline points="6 9 12 15 18 9"/>
+                </svg>
+              </summary>
+              <div class="accordion-content">
+                Hands-on frontend engineering with modern HTML/CSS/JS and WordPress CMS, bridging the gap between visual design and production-ready code.
               </div>
-            </div>
+            </details>
 
             <!-- Item 4: Trainer UI/UX -->
-            <div class="capability-item">
-              <span class="capability-badge">Trainer</span>
-              <div class="capability-content">
-                <h4>Trainer UI/UX & Mentor</h4>
-                <p>Mentoring emerging designers, leading UI/UX masterclasses, and teaching design systems & human-centered methodologies.</p>
+            <details class="accordion-item">
+              <summary class="accordion-summary">
+                <div class="accordion-title-wrap">
+                  <span class="accordion-badge" style="background: rgba(245, 79, 27, 0.15); border-color: rgba(245, 79, 27, 0.4); color: var(--accent-orange);">Trainer</span>
+                  <span class="accordion-title">Trainer UI/UX & Mentor</span>
+                </div>
+                <svg class="accordion-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                  <polyline points="6 9 12 15 18 9"/>
+                </svg>
+              </summary>
+              <div class="accordion-content">
+                Mentoring aspiring designers, leading UI/UX bootcamps, and coaching teams on modern design systems, Figma workflows, and design thinking.
               </div>
-            </div>
+            </details>
           </div>
         </div>
       </div>
@@ -315,10 +594,9 @@
     <section class="section-process" id="process">
       <div class="container">
         <div class="section-header">
-          <span class="section-tag">Methodology</span>
-          <h2 class="section-title">A rigorous 5-step user-centered framework.</h2>
+          <h2 class="section-title">Design Process</h2>
           <p class="section-desc">
-            My UI/UX design process begins with in-depth research to understand user needs, creative ideation, transforming ideas into visually appealing designs, testing for usability, and refining through data-driven iteration.
+            A 5-step user-centered framework: in-depth research, creative ideation, high-fidelity design, usability testing, and data-driven iteration.
           </p>
         </div>
 
@@ -360,7 +638,7 @@
             <button class="step-nav-item" data-step="5">
               <span class="step-number">STEP 05</span>
               <div class="step-nav-content">
-                <div class="step-nav-title">Iteration & Development Handoff</div>
+                <div class="step-nav-title">Iteration & Handoff</div>
                 <div class="step-nav-summary">Refine designs based on feedback, data, and dev feasibility.</div>
               </div>
             </button>
@@ -402,16 +680,15 @@
     <section class="section-projects" id="projects">
       <div class="container">
         <div class="section-header">
-          <span class="section-tag">Case Studies</span>
-          <h2 class="section-title">Selected works & digital platforms.</h2>
+          <h2 class="section-title">Selected Works</h2>
           <p class="section-desc">
             With <strong>50+ completed projects</strong> across industries, here are 7 featured in-depth case studies highlighting end-to-end UX research, system design, and production delivery.
           </p>
         </div>
 
-        <!-- Filter Categories -->
+        <!-- Filter Categories (Horizontal swipe on mobile) -->
         <div class="filter-toolbar">
-          <button class="filter-btn active" data-filter="all">All Featured (7)</button>
+          <button class="filter-btn active" data-filter="all">All (7)</button>
           <button class="filter-btn" data-filter="web">Enterprise & Web (2)</button>
           <button class="filter-btn" data-filter="mobile">Mobile Apps (3)</button>
           <button class="filter-btn" data-filter="saas">IoT & SaaS (2)</button>
@@ -428,7 +705,7 @@
               <span class="project-category-badge">Enterprise Web</span>
             </div>
             <div class="project-content">
-              <span class="project-client-name">PT AICC (Asian Isuzu Casting Centre)</span>
+              <span class="project-client-name">PT AICC</span>
               <h3 class="project-title">Digital Company Profile & Casting Portfolio</h3>
               <p class="project-snippet">
                 Transforming the online corporate presence for a premier automotive manufacturing company into a modern, responsive showcase.
@@ -598,10 +875,9 @@
     <section class="section-toolkit" id="toolkit">
       <div class="container">
         <div class="section-header">
-          <span class="section-tag">Competencies & Skills</span>
-          <h2 class="section-title">Design, Strategy & Engineering Toolkit.</h2>
+          <h2 class="section-title">Toolkit</h2>
           <p class="section-desc">
-            Combining human empathy, product management principles, web technologies, and mentorship capabilities.
+            Combining user empathy, product management principles, web development, and mentorship.
           </p>
         </div>
 
@@ -610,7 +886,7 @@
           <div class="toolkit-box">
             <h3>
               <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                <path d="M2 12h20M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/>
+                <path d="M2 12h20M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1-4-10z"/>
               </svg>
               Research & Strategy
             </h3>
@@ -671,11 +947,11 @@
       <div class="container">
         <div class="contact-card-box">
           <h2 class="contact-headline">
-            Let's create impactful, user-centered digital products together.
+            Let's create impactful products together.
           </h2>
 
           <p class="contact-subtext">
-            Available for full-time Product Design roles, Product Management consulting, Web Development, and UI/UX training sessions.
+            Available for full-time Product Design roles, Product Management consulting, Web Development, and UI/UX training.
           </p>
 
           <div class="contact-action-row">
@@ -738,16 +1014,19 @@
     </section>
   </main>
 
-  <!-- Footer -->
+  <!-- Clean, Uncluttered Footer -->
   <footer class="footer">
     <div class="container">
       <div class="footer-content">
         <div class="footer-copy">
-          © 2026 Akbar Hari Mukti — Designed with Bricolage Grotesque & Darkmode #020202
+          © 2026 Akbar Hari Mukti — Product Designer & UI/UX Specialist
         </div>
         <div class="footer-links">
           <a href="#home" class="footer-link">Back to Top ↑</a>
-          <a href="https://wa.me/6285839328549" target="_blank" rel="noopener noreferrer" class="footer-link" style="color: var(--accent-orange);">WA: 085839328549</a>
+          <!-- Quick popup trigger for mobile/desktop -->
+          <a href="#" class="footer-link" data-open-contact-popup style="color: var(--accent-orange); font-weight: 600;">
+            Hubungi Saya
+          </a>
           <a href="https://www.linkedin.com/in/akbarharimukti/" target="_blank" rel="noopener noreferrer" class="footer-link">LinkedIn</a>
           <a href="https://www.instagram.com/akbarhari21/" target="_blank" rel="noopener noreferrer" class="footer-link">Instagram</a>
           <a href="https://www.tiktok.com/@rabka214" target="_blank" rel="noopener noreferrer" class="footer-link">TikTok</a>
@@ -755,6 +1034,60 @@
       </div>
     </div>
   </footer>
+
+  <!-- Quick Contact Popup Modal (Requested for Clean Mobile Experience) -->
+  <div class="contact-popup-backdrop" id="quick-contact-modal" role="dialog" aria-modal="true">
+    <div class="contact-popup-card">
+      <button class="contact-popup-close" data-close-contact-popup aria-label="Tutup popup kontak">✕</button>
+      <h3 class="contact-popup-title">Hubungi Akbar</h3>
+      <p class="contact-popup-sub">Pilih saluran komunikasi yang paling nyaman untuk Anda:</p>
+
+      <div class="popup-contact-list">
+        <!-- WhatsApp -->
+        <a href="https://wa.me/6285839328549" target="_blank" rel="noopener noreferrer" class="popup-contact-btn">
+          <div class="popup-contact-info">
+            <svg viewBox="0 0 24 24" fill="currentColor">
+              <path d="M12.04 2c-5.46 0-9.91 4.45-9.91 9.91 0 1.75.46 3.45 1.32 4.95L2.05 22l5.25-1.38c1.45.79 3.08 1.21 4.74 1.21 5.46 0 9.91-4.45 9.91-9.91 0-2.65-1.03-5.14-2.9-7.01A9.82 9.82 0 0 0 12.04 2m.01 1.67c2.2 0 4.26.86 5.82 2.42a8.23 8.23 0 0 1 2.41 5.83c0 4.54-3.7 8.24-8.24 8.24-1.42 0-2.82-.37-4.06-1.07l-.29-.17-3.12.82.83-3.04-.19-.3a8.2 8.2 0 0 1-1.26-4.48c0-4.54 3.7-8.24 8.24-8.24m4.52 11.66c-.25-.13-1.47-.72-1.7-.8-.23-.09-.39-.13-.56.13-.17.25-.65.8-.8 1-.14.19-.29.22-.54.09-.25-.13-1.05-.39-2-1.23-.74-.66-1.24-1.47-1.39-1.72-.14-.25-.02-.39.11-.51.11-.11.25-.29.38-.43.12-.15.17-.25.25-.42.08-.17.04-.32-.02-.45-.06-.13-.56-1.35-.77-1.85-.2-.49-.41-.42-.56-.43h-.48c-.17 0-.44.06-.67.31-.23.25-.88.86-.88 2.1 0 1.24.9 2.44 1.03 2.61.13.17 1.78 2.71 4.3 3.8.6.26 1.07.42 1.44.54.61.19 1.16.17 1.6.1 1.49-.18 1.83-1.08 1.83-1.57 0-.17-.06-.29-.12-.39z"/>
+            </svg>
+            <div>
+              <strong>WhatsApp</strong>
+              <div style="font-family: var(--font-mono); font-size: 0.76rem; color: #94a3b8;">085839328549</div>
+            </div>
+          </div>
+          <span class="popup-action-tag">Chat ↗</span>
+        </a>
+
+        <!-- Email -->
+        <div class="popup-contact-btn" style="cursor: pointer;" data-copy-email="harimukti789@gmail.com">
+          <div class="popup-contact-info">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <rect x="2" y="4" width="20" height="16" rx="2"/>
+              <path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7"/>
+            </svg>
+            <div>
+              <strong>Email</strong>
+              <div style="font-family: var(--font-mono); font-size: 0.76rem; color: #94a3b8;">harimukti789@gmail.com</div>
+            </div>
+          </div>
+          <span class="popup-action-tag">Salin 📋</span>
+        </div>
+
+        <!-- LinkedIn -->
+        <a href="https://www.linkedin.com/in/akbarharimukti/" target="_blank" rel="noopener noreferrer" class="popup-contact-btn">
+          <div class="popup-contact-info">
+            <svg viewBox="0 0 24 24" fill="currentColor">
+              <path d="M19 3a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h14m-.5 15.5v-5.3a3.26 3.26 0 0 0-3.26-3.26c-.85 0-1.84.52-2.28 1.3v-1.11h-2.79v8.37h2.79v-4.93c0-.77.62-1.4 1.39-1.4a1.4 1.4 0 0 1 1.4 1.4v4.93h2.75M6.88 8.56a1.68 1.68 0 0 0 1.68-1.68c0-.93-.75-1.69-1.68-1.69a1.69 1.69 0 0 0-1.69 1.69c0 .93.76 1.68 1.69 1.68m1.39 9.94v-8.37H5.5v8.37h2.77z"/>
+            </svg>
+            <div>
+              <strong>LinkedIn</strong>
+              <div style="font-family: var(--font-mono); font-size: 0.76rem; color: #94a3b8;">/in/akbarharimukti</div>
+            </div>
+          </div>
+          <span class="popup-action-tag">Buka ↗</span>
+        </a>
+      </div>
+    </div>
+  </div>
 
   <!-- Interactive Case Study Modal Drawer -->
   <div class="modal-backdrop" id="case-study-modal" role="dialog" aria-modal="true">
@@ -867,6 +1200,54 @@
     <span id="toast-message">Notification</span>
   </div>
 
+  <!-- Main JavaScript Logic -->
   <script src="js/main.js"></script>
+
+  <!-- Quick Contact Popup Inline Script (Self-contained in index.html) -->
+  <script>
+    document.addEventListener('DOMContentLoaded', () => {
+      const popupModal = document.getElementById('quick-contact-modal');
+      const openTriggers = document.querySelectorAll('[data-open-contact-popup]');
+      const closeTriggers = document.querySelectorAll('[data-close-contact-popup]');
+
+      if (popupModal) {
+        openTriggers.forEach(btn => {
+          btn.addEventListener('click', (e) => {
+            e.preventDefault();
+            // Close mobile menu drawer if open
+            const mobileNav = document.getElementById('mobile-nav-drawer');
+            const mobileToggle = document.getElementById('mobile-menu-toggle');
+            if (mobileNav && mobileNav.classList.contains('open')) {
+              mobileNav.classList.remove('open');
+              if (mobileToggle) mobileToggle.classList.remove('active');
+            }
+            popupModal.classList.add('open');
+            document.body.style.overflow = 'hidden';
+          });
+        });
+
+        closeTriggers.forEach(btn => {
+          btn.addEventListener('click', () => {
+            popupModal.classList.remove('open');
+            document.body.style.overflow = '';
+          });
+        });
+
+        popupModal.addEventListener('click', (e) => {
+          if (e.target === popupModal) {
+            popupModal.classList.remove('open');
+            document.body.style.overflow = '';
+          }
+        });
+
+        document.addEventListener('keydown', (e) => {
+          if (e.key === 'Escape' && popupModal.classList.contains('open')) {
+            popupModal.classList.remove('open');
+            document.body.style.overflow = '';
+          }
+        });
+      }
+    });
+  </script>
 </body>
 </html>
