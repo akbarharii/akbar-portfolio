@@ -1,5 +1,5 @@
 <!doctype html>
-<html lang="id">
+<html lang="en">
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
@@ -12,11 +12,11 @@
     />
     <meta
       name="description"
-      content="Portfolio Akbar Hari Mukti, Product Designer & UI/UX Specialist berpengalaman 5+ tahun dalam merancang produk digital intuitif & scalable (Fintech, Crypto, Enterprise, IoT). Ahli dalam Web Development, WordPress, Product Management, Interview User, dan Trainer UI/UX."
+      content="Portfolio of Akbar Hari Mukti, Product Designer & UI/UX Specialist with 5+ years of experience creating intuitive, scalable digital experiences across fintech, crypto, enterprise, and IoT platforms. Expertise in Web Development, WordPress, Product Management, User Research, and UI/UX Training."
     />
     <meta
       name="keywords"
-      content="Akbar Hari Mukti, Product Designer, UI/UX Specialist, UI UX Designer Indonesia, Web Development, WordPress Developer, Product Manager, Trainer UIUX, Mentor UI UX, User Interview, Usability Testing, Portfolio Desain"
+      content="Akbar Hari Mukti, Product Designer, UI/UX Specialist, Senior Product Designer, Web Development, WordPress Developer, Product Manager, UX Trainer, Design Systems, User Research, Usability Testing, Design Portfolio"
     />
     <meta name="author" content="Akbar Hari Mukti" />
     <meta name="robots" content="index, follow" />
@@ -38,7 +38,6 @@
       property="og:description"
       content="Simplifying complexity through thoughtful design. 5+ years of experience in UI/UX, Web Development, Product Management, WordPress, and UX Training."
     />
-    <!-- <meta property="og:image" content="assets/thumbs/akbar_avatar.jpg" /> -->
     <meta
       property="og:image"
       content="https://akbarhari.vercel.app/assets/thumbs/og-cover.jpg"
@@ -49,7 +48,7 @@
       property="og:image:alt"
       content="Akbar Hari Mukti — Product Designer & UI/UX Specialist"
     />
-    <meta property="og:locale" content="id_ID" />
+    <meta property="og:locale" content="en_US" />
 
     <!-- Twitter Card -->
     <meta name="twitter:card" content="summary_large_image" />
@@ -62,11 +61,9 @@
       name="twitter:description"
       content="Simplifying complexity through thoughtful design. Explore 50+ completed projects and UI/UX case studies."
     />
-    <!-- <meta name="twitter:image" content="assets/thumbs/akbar_avatar.jpg" /> -->
-    <meta name="twitter:card" content="summary_large_image" />
     <meta
       name="twitter:image"
-      content="https://akbarharimukti.com/assets/thumbs/og-cover.jpg"
+      content="https://akbarhari.vercel.app/assets/thumbs/og-cover.jpg"
     />
 
     <!-- Schema.org JSON-LD Structured Data for Search Engines -->
@@ -107,6 +104,14 @@
       href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,300;400;500;600;700;800&family=JetBrains+Mono:wght@400;500;600;700&display=swap"
       rel="stylesheet"
     />
+
+    <!-- Phosphor Icons (Free Version) -->
+    <link rel="stylesheet" type="text/css" href="https://unpkg.com/@phosphor-icons/web@2.1.1/src/regular/style.css" />
+    <script src="https://unpkg.com/@phosphor-icons/web"></script>
+
+    <!-- Three.js Library for 3D Studio & Dynamic Fluid Canvas Background -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
+
     <link rel="stylesheet" href="css/style.css" />
     <link rel="icon" type="image/jpeg" href="assets/thumbs/akbar_avatar.jpg" />
 
@@ -281,14 +286,18 @@
         pointer-events: auto;
       }
       .contact-popup-card {
-        background: #0d0f14;
-        border: 1px solid rgba(255, 255, 255, 0.15);
+        background: rgba(10, 13, 20, 0.88);
+        backdrop-filter: blur(28px) saturate(190%);
+        -webkit-backdrop-filter: blur(28px) saturate(190%);
+        border: 1px solid rgba(255, 255, 255, 0.14);
         border-radius: var(--radius-md);
         width: 100%;
         max-width: 420px;
         padding: 1.75rem;
         position: relative;
-        box-shadow: 0 25px 60px rgba(0, 0, 0, 0.9);
+        box-shadow: 
+          inset 0 1px 1px 0 rgba(255, 255, 255, 0.22),
+          0 30px 70px rgba(0, 0, 0, 0.95);
         transform: translateY(14px);
         transition: transform 0.25s ease;
       }
@@ -362,7 +371,10 @@
     </style>
   </head>
   <body>
-    <!-- Ambient Atmospheric Tones (#1E05C1 & #F54F1B) -->
+    <!-- 3D Studio & Dynamic Fluid Canvas (Fixed Interactive Background) -->
+    <canvas id="bg-canvas"></canvas>
+
+    <!-- Subtle Atmospheric Grid Overlay -->
     <div class="bg-ambient-grid"></div>
     <div class="bg-radial-blue"></div>
     <div class="bg-radial-orange"></div>
@@ -389,6 +401,7 @@
             <li><a href="#process" class="nav-link">Process</a></li>
             <li><a href="#projects" class="nav-link">Projects</a></li>
             <li><a href="#toolkit" class="nav-link">Toolkit</a></li>
+            <li><a href="#creator" class="nav-link">Creator</a></li>
             <li><a href="#contact" class="nav-link">Contact</a></li>
           </ul>
 
@@ -401,16 +414,7 @@
               class="btn btn-wa-header"
               title="Chat via WhatsApp"
             >
-              <svg
-                width="14"
-                height="14"
-                viewBox="0 0 24 24"
-                fill="currentColor"
-              >
-                <path
-                  d="M12.04 2c-5.46 0-9.91 4.45-9.91 9.91 0 1.75.46 3.45 1.32 4.95L2.05 22l5.25-1.38c1.45.79 3.08 1.21 4.74 1.21 5.46 0 9.91-4.45 9.91-9.91 0-2.65-1.03-5.14-2.9-7.01A9.82 9.82 0 0 0 12.04 2m.01 1.67c2.2 0 4.26.86 5.82 2.42a8.23 8.23 0 0 1 2.41 5.83c0 4.54-3.7 8.24-8.24 8.24-1.42 0-2.82-.37-4.06-1.07l-.29-.17-3.12.82.83-3.04-.19-.3a8.2 8.2 0 0 1-1.26-4.48c0-4.54 3.7-8.24 8.24-8.24m4.52 11.66c-.25-.13-1.47-.72-1.7-.8-.23-.09-.39-.13-.56.13-.17.25-.65.8-.8 1-.14.19-.29.22-.54.09-.25-.13-1.05-.39-2-1.23-.74-.66-1.24-1.47-1.39-1.72-.14-.25-.02-.39.11-.51.11-.11.25-.29.38-.43.12-.15.17-.25.25-.42.08-.17.04-.32-.02-.45-.06-.13-.56-1.35-.77-1.85-.2-.49-.41-.42-.56-.43h-.48c-.17 0-.44.06-.67.31-.23.25-.88.86-.88 2.1 0 1.24.9 2.44 1.03 2.61.13.17 1.78 2.71 4.3 3.8.6.26 1.07.42 1.44.54.61.19 1.16.17 1.6.1 1.49-.18 1.83-1.08 1.83-1.57 0-.17-.06-.29-.12-.39z"
-                />
-              </svg>
+              <i class="ph ph-whatsapp-logo"></i>
               <span>Free Consultation</span>
             </a>
 
@@ -418,7 +422,7 @@
             <button
               class="btn-contact-nav-trigger"
               data-open-contact-popup
-              aria-label="Buka popup kontak"
+              aria-label="Open contact popup"
             >
               <span>Contact</span>
             </button>
@@ -445,6 +449,7 @@
       <a href="#process">Design Process</a>
       <a href="#projects">Projects (50+ Done)</a>
       <a href="#toolkit">Toolkit</a>
+      <a href="#creator">Creator &amp; Content</a>
       <!-- Contact Popup Trigger Inside Mobile Menu -->
       <a
         href="#"
@@ -485,16 +490,7 @@
               <div class="hero-cta-group">
                 <a href="#projects" class="btn btn-primary">
                   Explore Works
-                  <svg
-                    width="15"
-                    height="15"
-                    viewBox="0 0 24 24"
-                    fill="none"
-                    stroke="currentColor"
-                    stroke-width="2.5"
-                  >
-                    <path d="M5 12h14M12 5l7 7-7 7" />
-                  </svg>
+                  <i class="ph ph-arrow-right"></i>
                 </a>
 
                 <!-- WhatsApp Action Button -->
@@ -504,16 +500,7 @@
                   rel="noopener noreferrer"
                   class="btn btn-wa-hero"
                 >
-                  <svg
-                    width="16"
-                    height="16"
-                    viewBox="0 0 24 24"
-                    fill="currentColor"
-                  >
-                    <path
-                      d="M12.04 2c-5.46 0-9.91 4.45-9.91 9.91 0 1.75.46 3.45 1.32 4.95L2.05 22l5.25-1.38c1.45.79 3.08 1.21 4.74 1.21 5.46 0 9.91-4.45 9.91-9.91 0-2.65-1.03-5.14-2.9-7.01A9.82 9.82 0 0 0 12.04 2m.01 1.67c2.2 0 4.26.86 5.82 2.42a8.23 8.23 0 0 1 2.41 5.83c0 4.54-3.7 8.24-8.24 8.24-1.42 0-2.82-.37-4.06-1.07l-.29-.17-3.12.82.83-3.04-.19-.3a8.2 8.2 0 0 1-1.26-4.48c0-4.54 3.7-8.24 8.24-8.24m4.52 11.66c-.25-.13-1.47-.72-1.7-.8-.23-.09-.39-.13-.56.13-.17.25-.65.8-.8 1-.14.19-.29.22-.54.09-.25-.13-1.05-.39-2-1.23-.74-.66-1.24-1.47-1.39-1.72-.14-.25-.02-.39.11-.51.11-.11.25-.29.38-.43.12-.15.17-.25.25-.42.08-.17.04-.32-.02-.45-.06-.13-.56-1.35-.77-1.85-.2-.49-.41-.42-.56-.43h-.48c-.17 0-.44.06-.67.31-.23.25-.88.86-.88 2.1 0 1.24.9 2.44 1.03 2.61.13.17 1.78 2.71 4.3 3.8.6.26 1.07.42 1.44.54.61.19 1.16.17 1.6.1 1.49-.18 1.83-1.08 1.83-1.57 0-.17-.06-.29-.12-.39z"
-                    />
-                  </svg>
+                  <i class="ph ph-whatsapp-logo"></i>
                   <span>Free Consultation</span>
                 </a>
 
@@ -522,18 +509,7 @@
                   download="Akbar_Hari_Mukti_Portfolio.pdf"
                   class="btn btn-secondary"
                 >
-                  <svg
-                    width="15"
-                    height="15"
-                    viewBox="0 0 24 24"
-                    fill="none"
-                    stroke="currentColor"
-                    stroke-width="2"
-                  >
-                    <path
-                      d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4M7 10l5 5 5-5M12 15V3"
-                    />
-                  </svg>
+                  <i class="ph ph-download-simple"></i>
                   PDF
                 </a>
               </div>
@@ -547,11 +523,7 @@
                   class="social-pill"
                   title="LinkedIn Profile"
                 >
-                  <svg viewBox="0 0 24 24" fill="currentColor">
-                    <path
-                      d="M19 3a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h14m-.5 15.5v-5.3a3.26 3.26 0 0 0-3.26-3.26c-.85 0-1.84.52-2.28 1.3v-1.11h-2.79v8.37h2.79v-4.93c0-.77.62-1.4 1.39-1.4a1.4 1.4 0 0 1 1.4 1.4v4.93h2.75M6.88 8.56a1.68 1.68 0 0 0 1.68-1.68c0-.93-.75-1.69-1.68-1.69a1.69 1.69 0 0 0-1.69 1.69c0 .93.76 1.68 1.69 1.68m1.39 9.94v-8.37H5.5v8.37h2.77z"
-                    />
-                  </svg>
+                  <i class="ph ph-linkedin-logo"></i>
                   <span>LinkedIn</span>
                 </a>
 
@@ -562,18 +534,7 @@
                   class="social-pill"
                   title="Instagram Profile"
                 >
-                  <svg
-                    viewBox="0 0 24 24"
-                    fill="none"
-                    stroke="currentColor"
-                    stroke-width="2"
-                    stroke-linecap="round"
-                    stroke-linejoin="round"
-                  >
-                    <rect x="2" y="2" width="20" height="20" rx="5" ry="5" />
-                    <path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z" />
-                    <line x1="17.5" y1="6.5" x2="17.51" y2="6.5" />
-                  </svg>
+                  <i class="ph ph-instagram-logo"></i>
                   <span>Instagram</span>
                 </a>
 
@@ -584,11 +545,7 @@
                   class="social-pill"
                   title="TikTok Profile"
                 >
-                  <svg viewBox="0 0 24 24" fill="currentColor">
-                    <path
-                      d="M12.525.02c1.31-.02 2.61-.01 3.91-.02.08 1.53.63 3.09 1.75 4.17 1.12 1.11 2.7 1.62 4.24 1.79v4.03c-1.44-.05-2.89-.35-4.2-.97-.57-.26-1.1-.59-1.62-.93-.01 2.92.01 5.84-.02 8.75-.08 1.4-.54 2.79-1.35 3.94-1.31 1.92-3.58 3.17-5.91 3.21-1.43.08-2.86-.31-4.08-1.03-2.02-1.19-3.44-3.37-3.65-5.71-.02-.5-.03-1-.01-1.49.18-1.9 1.12-3.72 2.58-4.96 1.66-1.44 3.98-2.13 6.15-1.72.02 1.48-.04 2.96-.04 4.44-.99-.32-2.15-.23-3.02.37-.63.41-1.11 1.04-1.27 1.76-.23 1.04.14 2.22.92 2.96.79.79 2.01.99 3.05.62.77-.28 1.37-.93 1.54-1.73.18-.79.16-1.61.16-2.42V.02h-2.48z"
-                    />
-                  </svg>
+                  <i class="ph ph-tiktok-logo"></i>
                   <span>TikTok</span>
                 </a>
               </div>
@@ -698,15 +655,7 @@
                     <span class="accordion-badge">PM</span>
                     <span class="accordion-title">Product Manager</span>
                   </div>
-                  <svg
-                    class="accordion-icon"
-                    viewBox="0 0 24 24"
-                    fill="none"
-                    stroke="currentColor"
-                    stroke-width="2"
-                  >
-                    <polyline points="6 9 12 15 18 9" />
-                  </svg>
+                  <i class="ph ph-caret-down accordion-icon"></i>
                 </summary>
                 <div class="accordion-content">
                   Aligning user pain points with business objectives, roadmap
@@ -732,15 +681,7 @@
                       >Interview User & Research</span
                     >
                   </div>
-                  <svg
-                    class="accordion-icon"
-                    viewBox="0 0 24 24"
-                    fill="none"
-                    stroke="currentColor"
-                    stroke-width="2"
-                  >
-                    <polyline points="6 9 12 15 18 9" />
-                  </svg>
+                  <i class="ph ph-caret-down accordion-icon"></i>
                 </summary>
                 <div class="accordion-content">
                   Conducting 1-on-1 contextual user interviews, heuristic
@@ -758,15 +699,7 @@
                       >Web Development & WordPress</span
                     >
                   </div>
-                  <svg
-                    class="accordion-icon"
-                    viewBox="0 0 24 24"
-                    fill="none"
-                    stroke="currentColor"
-                    stroke-width="2"
-                  >
-                    <polyline points="6 9 12 15 18 9" />
-                  </svg>
+                  <i class="ph ph-caret-down accordion-icon"></i>
                 </summary>
                 <div class="accordion-content">
                   Hands-on frontend engineering with modern HTML/CSS/JS and
@@ -790,15 +723,7 @@
                     >
                     <span class="accordion-title">Trainer UI/UX & Mentor</span>
                   </div>
-                  <svg
-                    class="accordion-icon"
-                    viewBox="0 0 24 24"
-                    fill="none"
-                    stroke="currentColor"
-                    stroke-width="2"
-                  >
-                    <polyline points="6 9 12 15 18 9" />
-                  </svg>
+                  <i class="ph ph-caret-down accordion-icon"></i>
                 </summary>
                 <div class="accordion-content">
                   Mentoring aspiring designers, leading UI/UX bootcamps, and
@@ -901,47 +826,19 @@
                 id="process-deliverables-list"
               >
                 <div class="deliverable-item">
-                  <svg
-                    viewBox="0 0 24 24"
-                    fill="none"
-                    stroke="currentColor"
-                    stroke-width="2.5"
-                  >
-                    <polyline points="20 6 9 17 4 12"></polyline>
-                  </svg>
+                  <i class="ph ph-check-circle"></i>
                   <span>1-on-1 User Interviews</span>
                 </div>
                 <div class="deliverable-item">
-                  <svg
-                    viewBox="0 0 24 24"
-                    fill="none"
-                    stroke="currentColor"
-                    stroke-width="2.5"
-                  >
-                    <polyline points="20 6 9 17 4 12"></polyline>
-                  </svg>
+                  <i class="ph ph-check-circle"></i>
                   <span>Market & Competitor Analysis</span>
                 </div>
                 <div class="deliverable-item">
-                  <svg
-                    viewBox="0 0 24 24"
-                    fill="none"
-                    stroke="currentColor"
-                    stroke-width="2.5"
-                  >
-                    <polyline points="20 6 9 17 4 12"></polyline>
-                  </svg>
+                  <i class="ph ph-check-circle"></i>
                   <span>Business Goal & PM Alignment</span>
                 </div>
                 <div class="deliverable-item">
-                  <svg
-                    viewBox="0 0 24 24"
-                    fill="none"
-                    stroke="currentColor"
-                    stroke-width="2.5"
-                  >
-                    <polyline points="20 6 9 17 4 12"></polyline>
-                  </svg>
+                  <i class="ph ph-check-circle"></i>
                   <span>Problem Definition & Personas</span>
                 </div>
               </div>
@@ -1010,32 +907,12 @@
                       title="Visit aicc.co.id"
                     >
                       <span>Live Site</span>
-                      <svg
-                        width="12"
-                        height="12"
-                        viewBox="0 0 24 24"
-                        fill="none"
-                        stroke="currentColor"
-                        stroke-width="2.5"
-                      >
-                        <path
-                          d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6M15 3h6v6M10 14L21 3"
-                        />
-                      </svg>
+                      <i class="ph ph-arrow-up-right"></i>
                     </a>
                   </div>
                   <button class="btn-case-study" data-open-project="project-1">
                     Case Study
-                    <svg
-                      width="14"
-                      height="14"
-                      viewBox="0 0 24 24"
-                      fill="none"
-                      stroke="currentColor"
-                      stroke-width="2.5"
-                    >
-                      <path d="M5 12h14M12 5l7 7-7 7" />
-                    </svg>
+                    <i class="ph ph-arrow-right"></i>
                   </button>
                 </div>
               </div>
@@ -1068,16 +945,7 @@
                   >
                   <button class="btn-case-study" data-open-project="project-2">
                     Case Study
-                    <svg
-                      width="14"
-                      height="14"
-                      viewBox="0 0 24 24"
-                      fill="none"
-                      stroke="currentColor"
-                      stroke-width="2.5"
-                    >
-                      <path d="M5 12h14M12 5l7 7-7 7" />
-                    </svg>
+                    <i class="ph ph-arrow-right"></i>
                   </button>
                 </div>
               </div>
@@ -1109,16 +977,7 @@
                   >
                   <button class="btn-case-study" data-open-project="project-3">
                     Case Study
-                    <svg
-                      width="14"
-                      height="14"
-                      viewBox="0 0 24 24"
-                      fill="none"
-                      stroke="currentColor"
-                      stroke-width="2.5"
-                    >
-                      <path d="M5 12h14M12 5l7 7-7 7" />
-                    </svg>
+                    <i class="ph ph-arrow-right"></i>
                   </button>
                 </div>
               </div>
@@ -1151,16 +1010,7 @@
                   >
                   <button class="btn-case-study" data-open-project="project-4">
                     Case Study
-                    <svg
-                      width="14"
-                      height="14"
-                      viewBox="0 0 24 24"
-                      fill="none"
-                      stroke="currentColor"
-                      stroke-width="2.5"
-                    >
-                      <path d="M5 12h14M12 5l7 7-7 7" />
-                    </svg>
+                    <i class="ph ph-arrow-right"></i>
                   </button>
                 </div>
               </div>
@@ -1199,32 +1049,12 @@
                       title="Visit trackpedia.linkra.id"
                     >
                       <span>Live Site</span>
-                      <svg
-                        width="12"
-                        height="12"
-                        viewBox="0 0 24 24"
-                        fill="none"
-                        stroke="currentColor"
-                        stroke-width="2.5"
-                      >
-                        <path
-                          d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6M15 3h6v6M10 14L21 3"
-                        />
-                      </svg>
+                      <i class="ph ph-arrow-up-right"></i>
                     </a>
                   </div>
                   <button class="btn-case-study" data-open-project="project-5">
                     Case Study
-                    <svg
-                      width="14"
-                      height="14"
-                      viewBox="0 0 24 24"
-                      fill="none"
-                      stroke="currentColor"
-                      stroke-width="2.5"
-                    >
-                      <path d="M5 12h14M12 5l7 7-7 7" />
-                    </svg>
+                    <i class="ph ph-arrow-right"></i>
                   </button>
                 </div>
               </div>
@@ -1257,16 +1087,7 @@
                   >
                   <button class="btn-case-study" data-open-project="project-6">
                     Case Study
-                    <svg
-                      width="14"
-                      height="14"
-                      viewBox="0 0 24 24"
-                      fill="none"
-                      stroke="currentColor"
-                      stroke-width="2.5"
-                    >
-                      <path d="M5 12h14M12 5l7 7-7 7" />
-                    </svg>
+                    <i class="ph ph-arrow-right"></i>
                   </button>
                 </div>
               </div>
@@ -1303,32 +1124,12 @@
                       title="Visit harisenin.com"
                     >
                       <span>Live Site</span>
-                      <svg
-                        width="12"
-                        height="12"
-                        viewBox="0 0 24 24"
-                        fill="none"
-                        stroke="currentColor"
-                        stroke-width="2.5"
-                      >
-                        <path
-                          d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6M15 3h6v6M10 14L21 3"
-                        />
-                      </svg>
+                      <i class="ph ph-arrow-up-right"></i>
                     </a>
                   </div>
                   <button class="btn-case-study" data-open-project="project-7">
                     Case Study
-                    <svg
-                      width="14"
-                      height="14"
-                      viewBox="0 0 24 24"
-                      fill="none"
-                      stroke="currentColor"
-                      stroke-width="2.5"
-                    >
-                      <path d="M5 12h14M12 5l7 7-7 7" />
-                    </svg>
+                    <i class="ph ph-arrow-right"></i>
                   </button>
                 </div>
               </div>
@@ -1352,18 +1153,7 @@
             <!-- Column 1 -->
             <div class="toolkit-box">
               <h3>
-                <svg
-                  width="18"
-                  height="18"
-                  viewBox="0 0 24 24"
-                  fill="none"
-                  stroke="currentColor"
-                  stroke-width="2"
-                >
-                  <path
-                    d="M2 12h20M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1-4-10z"
-                  />
-                </svg>
+                <i class="ph ph-compass" style="color: var(--accent-orange); margin-right: 6px;"></i>
                 Research & Strategy
               </h3>
               <div class="skill-tag-group">
@@ -1386,18 +1176,7 @@
             <!-- Column 2 -->
             <div class="toolkit-box">
               <h3>
-                <svg
-                  width="18"
-                  height="18"
-                  viewBox="0 0 24 24"
-                  fill="none"
-                  stroke="currentColor"
-                  stroke-width="2"
-                >
-                  <polygon points="12 2 2 7 12 12 22 7 12 2" />
-                  <polyline points="2 17 12 22 22 17" />
-                  <polyline points="2 12 12 17 22 12" />
-                </svg>
+                <i class="ph ph-stack" style="color: var(--accent-orange); margin-right: 6px;"></i>
                 UI & System Design
               </h3>
               <div class="skill-tag-group">
@@ -1413,17 +1192,7 @@
             <!-- Column 3 -->
             <div class="toolkit-box">
               <h3>
-                <svg
-                  width="18"
-                  height="18"
-                  viewBox="0 0 24 24"
-                  fill="none"
-                  stroke="currentColor"
-                  stroke-width="2"
-                >
-                  <polyline points="16 18 22 12 16 6" />
-                  <polyline points="8 6 2 12 8 18" />
-                </svg>
+                <i class="ph ph-code" style="color: var(--accent-orange); margin-right: 6px;"></i>
                 Web Dev, WordPress & Training
               </h3>
               <div class="skill-tag-group">
@@ -1454,6 +1223,226 @@
         </div>
       </section>
 
+      <!-- Creator & Social Media Content Section -->
+      <section class="section-social" id="creator">
+        <div class="container">
+          <div class="section-header">
+            <span class="section-badge">
+              <i class="ph ph-video-camera"></i> Creator &amp; Insights
+            </span>
+            <h2 class="section-title">Design Bytes on Social</h2>
+            <p class="section-desc">
+              Bite-sized UI/UX breakdowns, product strategy teardowns, and scalable design system workflows shared directly on Instagram &amp; TikTok.
+            </p>
+          </div>
+
+          <!-- Platform Filter Tabs -->
+          <div class="social-filter-tabs">
+            <button class="social-filter-btn active" data-social-filter="all">
+              <i class="ph ph-squares-four"></i>
+              <span>All Content</span>
+            </button>
+            <button class="social-filter-btn" data-social-filter="instagram">
+              <i class="ph ph-instagram-logo"></i>
+              <span>Instagram (@akbarhari21)</span>
+            </button>
+            <button class="social-filter-btn" data-social-filter="tiktok">
+              <i class="ph ph-tiktok-logo"></i>
+              <span>TikTok (@rabka214)</span>
+            </button>
+          </div>
+
+          <!-- Social Content Cards Grid -->
+          <div class="social-cards-grid">
+            <!-- Card 1: Instagram Carousel -->
+            <div class="social-card" data-platform="instagram">
+              <div class="social-card-thumb">
+                <div class="social-thumb-badge ig-badge">
+                  <i class="ph ph-instagram-logo"></i> Instagram
+                </div>
+                <div class="social-thumb-type">
+                  <i class="ph ph-copy"></i> Carousel
+                </div>
+                <div class="social-thumb-graphic ig-grad-1">
+                  <span class="social-thumb-tag">Fintech UX</span>
+                  <div class="social-thumb-title">5 Subtle UX Mistakes in SaaS Onboarding</div>
+                </div>
+              </div>
+              <div class="social-card-body">
+                <div class="social-meta-info">
+                  <span class="social-category">UX Teardown</span>
+                  <span class="social-metrics"><i class="ph ph-bookmark-simple"></i> 3.4k saves</span>
+                </div>
+                <h3 class="social-post-title">
+                  5 Subtle UX Mistakes That Kill SaaS Conversion Rates
+                </h3>
+                <p class="social-post-snippet">
+                  Why friction in user verification often leads to 40% drops, and how to redesign verification steps with progressive disclosure.
+                </p>
+                <a
+                  href="https://www.instagram.com/akbarhari21/"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  class="social-post-link"
+                >
+                  <span>Watch on Instagram</span>
+                  <i class="ph ph-arrow-up-right"></i>
+                </a>
+              </div>
+            </div>
+
+            <!-- Card 2: TikTok Video -->
+            <div class="social-card" data-platform="tiktok">
+              <div class="social-card-thumb">
+                <div class="social-thumb-badge tt-badge">
+                  <i class="ph ph-tiktok-logo"></i> TikTok
+                </div>
+                <div class="social-thumb-type">
+                  <i class="ph ph-play-circle"></i> Video
+                </div>
+                <div class="social-thumb-graphic tt-grad-1">
+                  <span class="social-thumb-tag">Figma Tokens</span>
+                  <div class="social-thumb-title">Design System Token Architecture</div>
+                </div>
+              </div>
+              <div class="social-card-body">
+                <div class="social-meta-info">
+                  <span class="social-category">Design System</span>
+                  <span class="social-metrics"><i class="ph ph-heart"></i> 8.5k likes</span>
+                </div>
+                <h3 class="social-post-title">
+                  Design System Token Structure: How Scalable Teams Organize Variables
+                </h3>
+                <p class="social-post-snippet">
+                  Step-by-step breakdown of semantic tokens vs global primitives in Figma 2026 for seamless developer handoff.
+                </p>
+                <a
+                  href="https://www.tiktok.com/@rabka214"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  class="social-post-link"
+                >
+                  <span>Watch on TikTok</span>
+                  <i class="ph ph-arrow-up-right"></i>
+                </a>
+              </div>
+            </div>
+
+            <!-- Card 3: Instagram Research -->
+            <div class="social-card" data-platform="instagram">
+              <div class="social-card-thumb">
+                <div class="social-thumb-badge ig-badge">
+                  <i class="ph ph-instagram-logo"></i> Instagram
+                </div>
+                <div class="social-thumb-type">
+                  <i class="ph ph-copy"></i> Carousel
+                </div>
+                <div class="social-thumb-graphic ig-grad-2">
+                  <span class="social-thumb-tag">User Discovery</span>
+                  <div class="social-thumb-title">Effective User Interview Framework</div>
+                </div>
+              </div>
+              <div class="social-card-body">
+                <div class="social-meta-info">
+                  <span class="social-category">Product Strategy</span>
+                  <span class="social-metrics"><i class="ph ph-bookmark-simple"></i> 4.1k saves</span>
+                </div>
+                <h3 class="social-post-title">
+                  How to Structure User Interviews That Uncover True Pain Points
+                </h3>
+                <p class="social-post-snippet">
+                  Avoid leading questions: 7 conversational techniques to extract actionable user insights during discovery sprints.
+                </p>
+                <a
+                  href="https://www.instagram.com/akbarhari21/"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  class="social-post-link"
+                >
+                  <span>Read on Instagram</span>
+                  <i class="ph ph-arrow-up-right"></i>
+                </a>
+              </div>
+            </div>
+
+            <!-- Card 4: TikTok Career Tips -->
+            <div class="social-card" data-platform="tiktok">
+              <div class="social-card-thumb">
+                <div class="social-thumb-badge tt-badge">
+                  <i class="ph ph-tiktok-logo"></i> TikTok
+                </div>
+                <div class="social-thumb-type">
+                  <i class="ph ph-play-circle"></i> Video
+                </div>
+                <div class="social-thumb-graphic tt-grad-2">
+                  <span class="social-thumb-tag">Career Growth</span>
+                  <div class="social-thumb-title">Junior to Senior Designer Shifts</div>
+                </div>
+              </div>
+              <div class="social-card-body">
+                <div class="social-meta-info">
+                  <span class="social-category">Career Growth</span>
+                  <span class="social-metrics"><i class="ph ph-heart"></i> 12.2k likes</span>
+                </div>
+                <h3 class="social-post-title">
+                  From Junior to Senior Product Designer: 3 Mindset Shifts You Need
+                </h3>
+                <p class="social-post-snippet">
+                  Shifting from executing Figma tickets to owning problem definition, cross-functional alignment, and product metrics.
+                </p>
+                <a
+                  href="https://www.tiktok.com/@rabka214"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  class="social-post-link"
+                >
+                  <span>Watch on TikTok</span>
+                  <i class="ph ph-arrow-up-right"></i>
+                </a>
+              </div>
+            </div>
+          </div>
+
+          <!-- Social Follow / Channel Connect Strip -->
+          <div class="social-channels-banner">
+            <div class="social-banner-text">
+              <h4>Stay Connected on Social</h4>
+              <p>Follow along for weekly design tutorials, interactive prototyping tips, and real-world project behind-the-scenes.</p>
+            </div>
+            <div class="social-banner-actions">
+              <a
+                href="https://www.instagram.com/akbarhari21/"
+                target="_blank"
+                rel="noopener noreferrer"
+                class="btn-social-follow ig-follow"
+              >
+                <i class="ph ph-instagram-logo"></i>
+                <span>Follow @akbarhari21</span>
+              </a>
+              <a
+                href="https://www.tiktok.com/@rabka214"
+                target="_blank"
+                rel="noopener noreferrer"
+                class="btn-social-follow tt-follow"
+              >
+                <i class="ph ph-tiktok-logo"></i>
+                <span>Follow @rabka214</span>
+              </a>
+              <a
+                href="https://lynk.id/akbarhari"
+                target="_blank"
+                rel="noopener noreferrer"
+                class="btn-social-follow lynk-follow"
+                title="Get Digital Products &amp; UI Templates"
+              >
+                <i class="ph ph-bag"></i>
+                <span>Digital Products (Lynk.id)</span>
+              </a>
+            </div>
+          </div>
+        </div>
+      </section>
+
       <!-- Call to Action / Contact Section -->
       <section class="section-contact" id="contact">
         <div class="container">
@@ -1468,14 +1457,6 @@
             </p>
 
             <div class="contact-action-row">
-              <!-- Direct WhatsApp Button -->
-              <!-- <a href="https://wa.me/6285839328549" target="_blank" rel="noopener noreferrer" class="btn-whatsapp-direct" title="Chat via WhatsApp">
-              <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor">
-                <path d="M12.04 2c-5.46 0-9.91 4.45-9.91 9.91 0 1.75.46 3.45 1.32 4.95L2.05 22l5.25-1.38c1.45.79 3.08 1.21 4.74 1.21 5.46 0 9.91-4.45 9.91-9.91 0-2.65-1.03-5.14-2.9-7.01A9.82 9.82 0 0 0 12.04 2m.01 1.67c2.2 0 4.26.86 5.82 2.42a8.23 8.23 0 0 1 2.41 5.83c0 4.54-3.7 8.24-8.24 8.24-1.42 0-2.82-.37-4.06-1.07l-.29-.17-3.12.82.83-3.04-.19-.3a8.2 8.2 0 0 1-1.26-4.48c0-4.54 3.7-8.24 8.24-8.24m4.52 11.66c-.25-.13-1.47-.72-1.7-.8-.23-.09-.39-.13-.56.13-.17.25-.65.8-.8 1-.14.19-.29.22-.54.09-.25-.13-1.05-.39-2-1.23-.74-.66-1.24-1.47-1.39-1.72-.14-.25-.02-.39.11-.51.11-.11.25-.29.38-.43.12-.15.17-.25.25-.42.08-.17.04-.32-.02-.45-.06-.13-.56-1.35-.77-1.85-.2-.49-.41-.42-.56-.43h-.48c-.17 0-.44.06-.67.31-.23.25-.88.86-.88 2.1 0 1.24.9 2.44 1.03 2.61.13.17 1.78 2.71 4.3 3.8.6.26 1.07.42 1.44.54.61.19 1.16.17 1.6.1 1.49-.18 1.83-1.08 1.83-1.57 0-.17-.06-.29-.12-.39z"/>
-              </svg>
-              <span>WhatsApp: 085839328549</span>
-            </a> -->
-
               <a
                 href="https://wa.me/6285839328549?text=Hi%20Akbar%2C%20I%27m%20interested%20in%20a%20free%20consultation%20for%20my%20project."
                 target="_blank"
@@ -1483,16 +1464,7 @@
                 class="btn-whatsapp-direct"
                 title="Book a Free Consultation via WhatsApp"
               >
-                <svg
-                  width="18"
-                  height="18"
-                  viewBox="0 0 24 24"
-                  fill="currentColor"
-                >
-                  <path
-                    d="M12.04 2c-5.46 0-9.91 4.45-9.91 9.91 0 1.75.46 3.45 1.32 4.95L2.05 22l5.25-1.38c1.45.79 3.08 1.21 4.74 1.21 5.46 0 9.91-4.45 9.91-9.91 0-2.65-1.03-5.14-2.9-7.01A9.82 9.82 0 0 0 12.04 2m.01 1.67c2.2 0 4.26.86 5.82 2.42a8.23 8.23 0 0 1 2.41 5.83c0 4.54-3.7 8.24-8.24 8.24-1.42 0-2.82-.37-4.06-1.07l-.29-.17-3.12.82.83-3.04-.19-.3a8.2 8.2 0 0 1-1.26-4.48c0-4.54 3.7-8.24 8.24-8.24m4.52 11.66c-.25-.13-1.47-.72-1.7-.8-.23-.09-.39-.13-.56.13-.17.25-.65.8-.8 1-.14.19-.29.22-.54.09-.25-.13-1.05-.39-2-1.23-.74-.66-1.24-1.47-1.39-1.72-.14-.25-.02-.39.11-.51.11-.11.25-.29.38-.43.12-.15.17-.25.25-.42.08-.17.04-.32-.02-.45-.06-.13-.56-1.35-.77-1.85-.2-.49-.41-.42-.56-.43h-.48c-.17 0-.44.06-.67.31-.23.25-.88.86-.88 2.1 0 1.24.9 2.44 1.03 2.61.13.17 1.78 2.71 4.3 3.8.6.26 1.07.42 1.44.54.61.19 1.16.17 1.6.1 1.49-.18 1.83-1.08 1.83-1.57 0-.17-.06-.29-.12-.39z"
-                  />
-                </svg>
+                <i class="ph ph-whatsapp-logo"></i>
                 <span>Free Consultation</span>
               </a>
 
@@ -1504,19 +1476,7 @@
                   data-copy-email="harimukti789@gmail.com"
                   aria-label="Copy email address"
                 >
-                  <svg
-                    width="14"
-                    height="14"
-                    viewBox="0 0 24 24"
-                    fill="none"
-                    stroke="currentColor"
-                    stroke-width="2"
-                  >
-                    <rect x="9" y="9" width="13" height="13" rx="2" ry="2" />
-                    <path
-                      d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"
-                    />
-                  </svg>
+                  <i class="ph ph-copy"></i>
                   Copy Email
                 </button>
               </div>
@@ -1527,18 +1487,7 @@
                 download="Akbar_Hari_Mukti_Portfolio.pdf"
                 class="btn btn-secondary"
               >
-                <svg
-                  width="15"
-                  height="15"
-                  viewBox="0 0 24 24"
-                  fill="none"
-                  stroke="currentColor"
-                  stroke-width="2"
-                >
-                  <path
-                    d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4M7 10l5 5 5-5M12 15V3"
-                  />
-                </svg>
+                <i class="ph ph-download-simple"></i>
                 Download PDF
               </a>
             </div>
@@ -1551,11 +1500,7 @@
                 rel="noopener noreferrer"
                 class="social-pill"
               >
-                <svg viewBox="0 0 24 24" fill="currentColor">
-                  <path
-                    d="M19 3a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h14m-.5 15.5v-5.3a3.26 3.26 0 0 0-3.26-3.26c-.85 0-1.84.52-2.28 1.3v-1.11h-2.79v8.37h2.79v-4.93c0-.77.62-1.4 1.39-1.4a1.4 1.4 0 0 1 1.4 1.4v4.93h2.75M6.88 8.56a1.68 1.68 0 0 0 1.68-1.68c0-.93-.75-1.69-1.68-1.69a1.69 1.69 0 0 0-1.69 1.69c0 .93.76 1.68 1.69 1.68m1.39 9.94v-8.37H5.5v8.37h2.77z"
-                  />
-                </svg>
+                <i class="ph ph-linkedin-logo"></i>
                 <span>LinkedIn</span>
               </a>
 
@@ -1565,18 +1510,7 @@
                 rel="noopener noreferrer"
                 class="social-pill"
               >
-                <svg
-                  viewBox="0 0 24 24"
-                  fill="none"
-                  stroke="currentColor"
-                  stroke-width="2"
-                  stroke-linecap="round"
-                  stroke-linejoin="round"
-                >
-                  <rect x="2" y="2" width="20" height="20" rx="5" ry="5" />
-                  <path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z" />
-                  <line x1="17.5" y1="6.5" x2="17.51" y2="6.5" />
-                </svg>
+                <i class="ph ph-instagram-logo"></i>
                 <span>Instagram</span>
               </a>
 
@@ -1586,11 +1520,7 @@
                 rel="noopener noreferrer"
                 class="social-pill"
               >
-                <svg viewBox="0 0 24 24" fill="currentColor">
-                  <path
-                    d="M12.525.02c1.31-.02 2.61-.01 3.91-.02.08 1.53.63 3.09 1.75 4.17 1.12 1.11 2.7 1.62 4.24 1.79v4.03c-1.44-.05-2.89-.35-4.2-.97-.57-.26-1.1-.59-1.62-.93-.01 2.92.01 5.84-.02 8.75-.08 1.4-.54 2.79-1.35 3.94-1.31 1.92-3.58 3.17-5.91 3.21-1.43.08-2.86-.31-4.08-1.03-2.02-1.19-3.44-3.37-3.65-5.71-.02-.5-.03-1-.01-1.49.18-1.9 1.12-3.72 2.58-4.96 1.66-1.44 3.98-2.13 6.15-1.72.02 1.48-.04 2.96-.04 4.44-.99-.32-2.15-.23-3.02.37-.63.41-1.11 1.04-1.27 1.76-.23 1.04.14 2.22.92 2.96.79.79 2.01.99 3.05.62.77-.28 1.37-.93 1.54-1.73.18-.79.16-1.61.16-2.42V.02h-2.48z"
-                  />
-                </svg>
+                <i class="ph ph-tiktok-logo"></i>
                 <span>TikTok</span>
               </a>
             </div>
@@ -1638,6 +1568,16 @@
               class="footer-link"
               >TikTok</a
             >
+            <!-- Subtle Digital Product Link -->
+            <a
+              href="https://lynk.id/akbarhari"
+              target="_blank"
+              rel="noopener noreferrer"
+              class="footer-link"
+              style="opacity: 0.72; font-size: 0.82rem;"
+              title="Digital Products & Resources"
+              >Digital Products</a
+            >
           </div>
         </div>
       </div>
@@ -1654,7 +1594,7 @@
         <button
           class="contact-popup-close"
           data-close-contact-popup
-          aria-label="Tutup popup kontak"
+          aria-label="Close contact popup"
         >
           ✕
         </button>
@@ -1672,11 +1612,7 @@
             class="popup-contact-btn"
           >
             <div class="popup-contact-info">
-              <svg viewBox="0 0 24 24" fill="currentColor">
-                <path
-                  d="M12.04 2c-5.46 0-9.91 4.45-9.91 9.91 0 1.75.46 3.45 1.32 4.95L2.05 22l5.25-1.38c1.45.79 3.08 1.21 4.74 1.21 5.46 0 9.91-4.45 9.91-9.91 0-2.65-1.03-5.14-2.9-7.01A9.82 9.82 0 0 0 12.04 2m.01 1.67c2.2 0 4.26.86 5.82 2.42a8.23 8.23 0 0 1 2.41 5.83c0 4.54-3.7 8.24-8.24 8.24-1.42 0-2.82-.37-4.06-1.07l-.29-.17-3.12.82.83-3.04-.19-.3a8.2 8.2 0 0 1-1.26-4.48c0-4.54 3.7-8.24 8.24-8.24m4.52 11.66c-.25-.13-1.47-.72-1.7-.8-.23-.09-.39-.13-.56.13-.17.25-.65.8-.8 1-.14.19-.29.22-.54.09-.25-.13-1.05-.39-2-1.23-.74-.66-1.24-1.47-1.39-1.72-.14-.25-.02-.39.11-.51.11-.11.25-.29.38-.43.12-.15.17-.25.25-.42.08-.17.04-.32-.02-.45-.06-.13-.56-1.35-.77-1.85-.2-.49-.41-.42-.56-.43h-.48c-.17 0-.44.06-.67.31-.23.25-.88.86-.88 2.1 0 1.24.9 2.44 1.03 2.61.13.17 1.78 2.71 4.3 3.8.6.26 1.07.42 1.44.54.61.19 1.16.17 1.6.1 1.49-.18 1.83-1.08 1.83-1.57 0-.17-.06-.29-.12-.39z"
-                />
-              </svg>
+              <i class="ph ph-whatsapp-logo" style="font-size: 1.35rem; color: #25D366;"></i>
               <div>
                 <strong>WhatsApp</strong>
                 <div
@@ -1700,15 +1636,7 @@
             data-copy-email="harimukti789@gmail.com"
           >
             <div class="popup-contact-info">
-              <svg
-                viewBox="0 0 24 24"
-                fill="none"
-                stroke="currentColor"
-                stroke-width="2"
-              >
-                <rect x="2" y="4" width="20" height="16" rx="2" />
-                <path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7" />
-              </svg>
+              <i class="ph ph-envelope-simple" style="font-size: 1.35rem; color: var(--accent-orange);"></i>
               <div>
                 <strong>Email</strong>
                 <div
@@ -1733,11 +1661,7 @@
             class="popup-contact-btn"
           >
             <div class="popup-contact-info">
-              <svg viewBox="0 0 24 24" fill="currentColor">
-                <path
-                  d="M19 3a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h14m-.5 15.5v-5.3a3.26 3.26 0 0 0-3.26-3.26c-.85 0-1.84.52-2.28 1.3v-1.11h-2.79v8.37h2.79v-4.93c0-.77.62-1.4 1.39-1.4a1.4 1.4 0 0 1 1.4 1.4v4.93h2.75M6.88 8.56a1.68 1.68 0 0 0 1.68-1.68c0-.93-.75-1.69-1.68-1.69a1.69 1.69 0 0 0-1.69 1.69c0 .93.76 1.68 1.69 1.68m1.39 9.94v-8.37H5.5v8.37h2.77z"
-                />
-              </svg>
+              <i class="ph ph-linkedin-logo" style="font-size: 1.35rem; color: #0077b5;"></i>
               <div>
                 <strong>LinkedIn</strong>
                 <div
@@ -1778,17 +1702,7 @@
             id="modal-close-btn"
             aria-label="Close modal"
           >
-            <svg
-              width="18"
-              height="18"
-              viewBox="0 0 24 24"
-              fill="none"
-              stroke="currentColor"
-              stroke-width="2.5"
-            >
-              <line x1="18" y1="6" x2="6" y2="18" />
-              <line x1="6" y1="6" x2="18" y2="18" />
-            </svg>
+            <i class="ph ph-x"></i>
           </button>
         </div>
 
@@ -1874,19 +1788,7 @@
                 class="modal-preview-img"
               />
               <div class="img-zoom-tip">
-                <svg
-                  width="14"
-                  height="14"
-                  viewBox="0 0 24 24"
-                  fill="none"
-                  stroke="currentColor"
-                  stroke-width="2"
-                >
-                  <circle cx="11" cy="11" r="8" />
-                  <line x1="21" y1="21" x2="16.65" y2="16.65" />
-                  <line x1="11" y1="8" x2="11" y2="14" />
-                  <line x1="8" y1="11" x2="14" y2="11" />
-                </svg>
+                <i class="ph ph-magnifying-glass-plus"></i>
                 Click image to zoom full screen
               </div>
             </div>
@@ -1909,18 +1811,12 @@
 
     <!-- Toast Notification -->
     <div class="toast-notice" id="toast-notice">
-      <svg
-        width="16"
-        height="16"
-        viewBox="0 0 24 24"
-        fill="none"
-        stroke="var(--accent-orange)"
-        stroke-width="2.5"
-      >
-        <polyline points="20 6 9 17 4 12" />
-      </svg>
+      <i class="ph ph-check-circle" style="color: var(--accent-orange); font-size: 1.15rem;"></i>
       <span id="toast-message">Notification</span>
     </div>
+
+    <!-- 3D Studio & Dynamic Fluid Canvas Interactive Engine -->
+    <script src="js/background.js"></script>
 
     <!-- Main JavaScript Logic -->
     <script src="js/main.js"></script>

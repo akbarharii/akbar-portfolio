@@ -6,15 +6,15 @@
   <!-- Akbar Hari Mukti - Portfolio Main Page -->
   <url>
     <loc>https://akbarhari.vercel.app/</loc>
-    <lastmod>2026-10-10</lastmod>
-    <changefreq>monthly</changefreq>
+    <lastmod>2026-10-17</lastmod>
+    <changefreq>weekly</changefreq>
     <priority>1.0</priority>
   </url>
 
   <!-- PDF Portfolio Asset -->
   <url>
     <loc>https://akbarhari.vercel.app/assets/pdf/akbar_hari_portfolio_2026.pdf</loc>
-    <lastmod>2026-10-10</lastmod>
+    <lastmod>2026-10-17</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>

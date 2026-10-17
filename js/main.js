@@ -6,10 +6,12 @@
 document.addEventListener('DOMContentLoaded', () => {
   initProcessStepper();
   initProjectFiltering();
+  initSocialFiltering();
   initCaseStudyModal();
   initMobileMenu();
   initEmailCopy();
   initLightbox();
+  initScrollAnimations();
 });
 
 // ==========================================
@@ -300,7 +302,7 @@ function initProcessStepper() {
           if (deliverablesEl) {
             deliverablesEl.innerHTML = data.deliverables.map(del => `
               <div class="deliverable-item">
-                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"></polyline></svg>
+                <i class="ph ph-check-circle"></i>
                 <span>${del}</span>
               </div>
             `).join('');
@@ -331,6 +333,35 @@ function initProjectFiltering() {
       projectCards.forEach(card => {
         const category = card.getAttribute('data-category');
         if (filterVal === 'all' || category === filterVal) {
+          card.style.display = 'flex';
+          card.classList.add('fade-in');
+        } else {
+          card.style.display = 'none';
+        }
+      });
+    });
+  });
+}
+
+// ==========================================
+// 3b. Social Content Filter Engine (Instagram / TikTok)
+// ==========================================
+function initSocialFiltering() {
+  const filterBtns = document.querySelectorAll('.social-filter-btn');
+  const socialCards = document.querySelectorAll('.social-card');
+
+  if (!filterBtns.length || !socialCards.length) return;
+
+  filterBtns.forEach((btn) => {
+    btn.addEventListener('click', () => {
+      filterBtns.forEach((b) => b.classList.remove('active'));
+      btn.classList.add('active');
+
+      const filterVal = btn.getAttribute('data-social-filter');
+
+      socialCards.forEach((card) => {
+        const platform = card.getAttribute('data-platform');
+        if (filterVal === 'all' || platform === filterVal) {
           card.style.display = 'flex';
           card.classList.add('fade-in');
         } else {
@@ -559,3 +590,91 @@ function showToast(message) {
     toast.classList.remove('show');
   }, 2800);
 }
+
+// ==========================================
+// 8. Interactive Scroll-Triggered Transitions & Active Nav Spy
+// ==========================================
+function initScrollAnimations() {
+  // 1. Automatically register target elements for reveal transitions
+  const targets = [
+    // Section headers
+    ...document.querySelectorAll('.section-header'),
+    // Hero elements
+    document.querySelector('.hero-text-col'),
+    document.querySelector('.hero-visual-card'),
+    document.querySelector('.hero-stats-row'),
+    // About section cards
+    document.querySelector('.who-card-main'),
+    document.querySelector('.capabilities-list-box'),
+    // Process section cards
+    document.querySelector('.process-steps-list'),
+    document.querySelector('.process-display-card'),
+    // Project cards
+    ...document.querySelectorAll('.project-card'),
+    // Toolkit boxes
+    ...document.querySelectorAll('.toolkit-box'),
+    // Social & Creator cards and banner
+    ...document.querySelectorAll('.social-card'),
+    document.querySelector('.social-channels-banner'),
+    // Contact box
+    document.querySelector('.contact-card-box')
+  ].filter(Boolean);
+
+  targets.forEach((el) => {
+    el.classList.add('reveal-on-scroll');
+  });
+
+  // 2. IntersectionObserver for Reveal Transitions
+  if ('IntersectionObserver' in window) {
+    const revealObserver = new IntersectionObserver((entries, observer) => {
+      entries.forEach((entry) => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('is-revealed');
+          observer.unobserve(entry.target);
+        }
+      });
+    }, {
+      root: null,
+      threshold: 0.08,
+      rootMargin: '0px 0px -40px 0px'
+    });
+
+    targets.forEach((el) => revealObserver.observe(el));
+  } else {
+    // Fallback for older browsers
+    targets.forEach((el) => el.classList.add('is-revealed'));
+  }
+
+  // 3. Active Nav Spy on Scroll
+  const navLinks = document.querySelectorAll('.nav-links a[href^="#"]');
+  const sections = Array.from(navLinks).map((link) => {
+    const id = link.getAttribute('href').substring(1);
+    return document.getElementById(id);
+  }).filter(Boolean);
+
+  function updateActiveNav() {
+    const scrollY = window.scrollY + 160;
+
+    let currentSectionId = '';
+    sections.forEach((sec) => {
+      const top = sec.offsetTop;
+      const height = sec.offsetHeight;
+      if (scrollY >= top && scrollY < top + height) {
+        currentSectionId = sec.getAttribute('id');
+      }
+    });
+
+    navLinks.forEach((link) => {
+      const targetId = link.getAttribute('href').substring(1);
+      if (targetId === currentSectionId) {
+        link.classList.add('nav-active');
+      } else {
+        link.classList.remove('nav-active');
+      }
+    });
+  }
+
+  window.addEventListener('scroll', updateActiveNav, { passive: true });
+  updateActiveNav();
+}
+

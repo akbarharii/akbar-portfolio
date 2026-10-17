@@ -1,48 +1,58 @@
-# Akbar Hari M — Portfolio Website
+# Akbar Hari Mukti — Product Designer & UI/UX Specialist Portfolio
 
-A clean, modern, and responsive UI/UX specialist portfolio website crafted based on the 40-page PDF presentation.
+A modern, high-performance product design portfolio featuring an interactive Three.js 3D Studio & Dynamic Fluid Canvas background, frosted glass aesthetics, case studies, and responsive design.
 
-## Tech Stack
-- **HTML5**: Semantic, accessible markup.
-- **CSS3**: Pure modern CSS with responsive variables, Grid, Flexbox, micro-interactions.
-- **JavaScript (ES6+)**: Vanilla JS for project filtering, interactive 5-step design process stepper, case study modal drawer, and image lightbox.
-- **Typography**: Google Font [Bricolage Grotesque](https://fonts.google.com/specimen/Bricolage+Grotesque) with [JetBrains Mono](https://fonts.google.com/specimen/JetBrains+Mono) for metadata tags.
-- **Theme**: Deep obsidian dark mode (`#020202`) with neo-brutalist / Bauhaus geometric accents inspired by the PDF presentation.
+## Features & Highlights
+- **Interactive Three.js 3D Studio & Fluid Background (`js/background.js`)**:
+  - Dynamic GLSL fluid/liquid shader running at silky 60 FPS.
+  - Multi-octave domain-warped noise with mouse swirl and cursor velocity tracking.
+  - Interactive click/tap shockwave ripple waves with physics dispersion.
+  - Floating 3D glassmorphic geometries: Torus Knot, Icosahedron, Octahedron, and Orbitals with real glass refraction and magnetic parallax.
+  - Scroll-based 3D camera travel and depth parallax.
+  - **100% Dynamic CSS Color Extraction**: Zero hardcoded hex values in Three.js; colors are dynamically parsed from CSS root variables (`--bg-main`, `--accent-blue`, `--accent-orange`, etc.) with `MutationObserver` real-time theme adaptation.
+- **Visual Design**:
+  - Pure Obsidian Dark theme (`#020202`) with Royal Indigo (`#1E05C1`) and Hyper Orange (`#F54F1B`) accents.
+  - Frosted glassmorphism (`backdrop-filter: blur(20px)`) across cards, toolbars, and buttons.
+  - Modern, crisp border radii (3px to 10px).
+  - Free Phosphor Icons (`@phosphor-icons/web`) standardized across all UI elements.
+- **Content & Experience**:
+  - 100% standardized English copy.
+  - 7 detailed interactive case study modal walkthroughs with tabbed showcases.
+  - Interactive 5-step design process stepper.
+  - Extended capabilities: Product Management, User Interviews & Research, Web Development & WordPress, UI/UX Training.
+  - Discrete digital product link (`https://lynk.id/akbarhari`).
+  - Mobile-friendly quick contact popup modal and responsive drawer navigation.
+- **Production-Ready SEO**:
+  - Canonical URL: `https://akbarhari.vercel.app/`
+  - Open Graph, Twitter Cards, and Schema.org JSON-LD structured data.
+  - Google Site Verification meta tag included.
+  - `sitemap.xml` and `robots.txt` ready for Google Search Console.
 
 ## Project Structure
 ```
 akbar-portfolio/
-├── index.html              # Main webpage
+├── index.html              # Main HTML markup with SEO metadata & #bg-canvas
+├── sitemap.xml             # XML Sitemap for search engines
+├── robots.txt              # Search engine crawler directives
 ├── css/
-│   └── style.css           # Complete styling & responsive breakpoints
+│   └── style.css           # Glassmorphism, layout grid, typography & theme variables
 ├── js/
+│   ├── background.js       # Three.js 3D Studio & Dynamic Fluid Canvas engine
 │   └── main.js             # Filter, modal, process stepper & lightbox logic
 └── assets/
     ├── images/             # Extracted high-resolution mockups & diagrams
-    │   ├── akbar_avatar.png
-    │   └── page_1.png ... page_40.png
-    ├── thumbs/             # Web-optimized thumbnails for high-performance loading
+    ├── thumbs/             # Web-optimized thumbnails for fast loading
     └── pdf/
-        └── akbar_hari_portfolio_2026.pdf # Full downloadable original PDF presentation
+        └── akbar_hari_portfolio_2026.pdf # Downloadable PDF presentation
 ```
 
-## Included Case Studies (7 Projects)
-1. **PT AICC (Asian Isuzu Casting Centre)** — Corporate Website & Product Showcase (Enterprise Web)
-2. **Rumahbaru.co** — Property Marketplace & Agent Connect App (Mobile PropTech)
-3. **Obsidian Gym** — Premium Gym Management & Trainer Booking App (Mobile Fitness)
-4. **LRT Jakarta** — Smart Ticketing & Real-Time Timetable Transit App (Mobile Smart Transit)
-5. **Trackpedia (PT Linkra)** — IoT Global Maritime Fleet & Asset Tracking (IoT SaaS)
-6. **YKK AP Web Scales (Linkra)** — Digital Industrial Weighing System (Industrial Enterprise SaaS)
-7. **Harisenin.com** — Video Learning Experience & Curriculum Player (EdTech Web)
-
-## How to Run / Preview
-Buka file `index.html` langsung di browser:
+## How to Preview
+Open `index.html` directly in your browser:
 ```bash
-open /Users/mymac/.gemini/antigravity/scratch/akbar-portfolio/index.html
+open index.html
 ```
-Atau jalankan server lokal:
+Or start a local development server:
 ```bash
-cd /Users/mymac/.gemini/antigravity/scratch/akbar-portfolio
 python3 -m http.server 8080
 ```
-Lalu akses `http://localhost:8080` di browser.
+Then navigate to `http://localhost:8080`.
