@@ -108,11 +108,7 @@
     <!-- Phosphor Icons (Free Version) -->
     <link rel="stylesheet" type="text/css" href="https://unpkg.com/@phosphor-icons/web@2.1.1/src/regular/style.css" />
     <script src="https://unpkg.com/@phosphor-icons/web"></script>
-
-    <!-- Three.js Library for 3D Studio & Dynamic Fluid Canvas Background -->
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
-
-    <link rel="stylesheet" href="css/style.css" />
+<link rel="stylesheet" href="css/style.css" />
     <link rel="icon" type="image/jpeg" href="assets/thumbs/akbar_avatar.jpg" />
 
     <!-- Self-contained Responsive & Accordion Overhauls (Khusus index.html) -->
@@ -371,14 +367,6 @@
     </style>
   </head>
   <body>
-    <!-- 3D Studio & Dynamic Fluid Canvas (Fixed Interactive Background) -->
-    <canvas id="bg-canvas"></canvas>
-
-    <!-- Subtle Atmospheric Grid Overlay -->
-    <div class="bg-ambient-grid"></div>
-    <div class="bg-radial-blue"></div>
-    <div class="bg-radial-orange"></div>
-
     <!-- Sticky Header Navigation -->
     <header class="header">
       <div class="container">
@@ -461,137 +449,64 @@
     </div>
 
     <main>
-      <!-- Hero Section -->
-      <section class="hero" id="home">
+      <!-- Hero Section: editorial, centered composition -->
+      <section class="hero hero-editorial" id="home">
         <div class="container">
-          <div class="hero-grid">
-            <!-- Text Content -->
-            <div class="hero-text-col">
-              <!-- Simplified meta badge without excessive labels -->
-              <!-- <div class="hero-meta-bar">
-              <span class="hero-badge">Product Designer & Specialist</span>
-            </div> -->
-
-              <!-- Headline -->
-              <h1 class="hero-title">
-                Simplifying complexity through
-                <span class="accent-orange">Thoughtful</span>
-                <span style="color: #1e05c1">Design.</span>
-              </h1>
-
-              <!-- Sub-headline -->
-              <p class="hero-subtitle">
-                Hi, I'm <strong>Akbar Hari Mukti</strong>, a Product Designer
-                with <strong>5+ years of experience</strong> creating intuitive,
-                scalable digital experiences across fintech, crypto, enterprise,
-                and IoT.
-              </p>
-
-              <div class="hero-cta-group">
-                <a href="#projects" class="btn btn-primary">
-                  Explore Works
-                  <i class="ph ph-arrow-right"></i>
-                </a>
-
-                <!-- WhatsApp Action Button -->
-                <a
-                  href="https://wa.me/6285839328549"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  class="btn btn-wa-hero"
-                >
-                  <i class="ph ph-whatsapp-logo"></i>
-                  <span>Free Consultation</span>
-                </a>
-
-                <a
-                  href="assets/pdf/akbar_hari_portfolio_2026.pdf"
-                  download="Akbar_Hari_Mukti_Portfolio.pdf"
-                  class="btn btn-secondary"
-                >
-                  <i class="ph ph-download-simple"></i>
-                  PDF
-                </a>
-              </div>
-
-              <!-- Social Media Bar -->
-              <div class="social-links-bar">
-                <a
-                  href="https://www.linkedin.com/in/akbarharimukti/"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  class="social-pill"
-                  title="LinkedIn Profile"
-                >
-                  <i class="ph ph-linkedin-logo"></i>
-                  <span>LinkedIn</span>
-                </a>
-
-                <a
-                  href="https://www.instagram.com/akbarhari21/"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  class="social-pill"
-                  title="Instagram Profile"
-                >
-                  <i class="ph ph-instagram-logo"></i>
-                  <span>Instagram</span>
-                </a>
-
-                <a
-                  href="https://www.tiktok.com/@rabka214"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  class="social-pill"
-                  title="TikTok Profile"
-                >
-                  <i class="ph ph-tiktok-logo"></i>
-                  <span>TikTok</span>
-                </a>
-              </div>
-
-              <!-- Stats Bar -->
-              <div class="hero-stats-row">
-                <div class="stat-item">
-                  <span class="stat-number">5<span class="plus">+</span></span>
-                  <span class="stat-label">Years Experience</span>
-                </div>
-                <div class="stat-item">
-                  <span class="stat-number">50<span class="plus">+</span></span>
-                  <span class="stat-label">Projects Done</span>
-                </div>
-                <div class="stat-item">
-                  <span class="stat-number"
-                    >100<span class="plus">%</span></span
-                  >
-                  <span class="stat-label">User-Centered Focus</span>
-                </div>
-                <div class="stat-item">
-                  <span class="stat-number">2026</span>
-                  <span class="stat-label">Portfolio Edition</span>
-                </div>
-              </div>
+          <div class="hero-editorial-intro">
+            <div class="hero-availability"><span class="availability-dot"></span> Product Designer · UI/UX Specialist</div>
+            <h1 class="hero-title">
+              Designing digital
+              <span class="hero-title-emphasis">experiences that <em>make sense.</em></span>
+            </h1>
+            <p class="hero-subtitle">
+              Hi, I’m <strong>Akbar Hari Mukti</strong> — a Product Designer with
+              <strong>5+ years of experience</strong>, turning complex ideas into
+              intuitive, thoughtful experiences across fintech, crypto, enterprise, and IoT.
+            </p>
+            <div class="hero-cta-group">
+              <a href="#projects" class="btn btn-primary">Explore selected work <i class="ph ph-arrow-up-right"></i></a>
+              <a href="https://wa.me/6285839328549" target="_blank" rel="noopener noreferrer" class="btn btn-secondary">
+                <i class="ph ph-chat-circle-dots"></i><span>Let’s talk</span>
+              </a>
             </div>
+            <div class="social-links-bar" aria-label="Social profiles">
+              <a href="https://www.linkedin.com/in/akbarharimukti/" target="_blank" rel="noopener noreferrer" class="social-pill" title="LinkedIn Profile"><i class="ph ph-linkedin-logo"></i><span>LinkedIn</span></a>
+              <a href="https://www.instagram.com/akbarhari21/" target="_blank" rel="noopener noreferrer" class="social-pill" title="Instagram Profile"><i class="ph ph-instagram-logo"></i><span>Instagram</span></a>
+              <a href="https://www.tiktok.com/@rabka214" target="_blank" rel="noopener noreferrer" class="social-pill" title="TikTok Profile"><i class="ph ph-tiktok-logo"></i><span>TikTok</span></a>
+            </div>
+          </div>
 
-            <!-- Hero Visual Card (Clean, Uncluttered) -->
+          <div class="hero-editorial-stage">
+            <div class="hero-stage-orbit hero-stage-orbit-one"></div>
+            <div class="hero-stage-orbit hero-stage-orbit-two"></div>
+            <div class="hero-stage-note hero-stage-note-left">
+              <span class="stage-note-icon"><i class="ph ph-compass-tool"></i></span>
+              <span class="stage-note-title">Research first</span>
+              <span class="stage-note-copy">Understand people.<br>Design with purpose.</span>
+            </div>
+            <div class="hero-stage-note hero-stage-note-right">
+              <span class="stage-note-kicker">MY FOCUS</span>
+              <span class="stage-note-title">Less friction.<br>More clarity.</span>
+              <span class="stage-note-copy">UX strategy · Product UI</span>
+            </div>
             <div class="hero-visual-col">
               <div class="hero-visual-card">
                 <div class="hero-avatar-wrapper">
-                  <img
-                    src="assets/thumbs/akbar_avatar.jpg"
-                    alt="Akbar Hari Mukti - Product Designer & UI/UX Specialist"
-                    class="hero-avatar-img"
-                  />
+                  <img src="assets/thumbs/akbar_avatar.jpg" alt="Akbar Hari Mukti — Product Designer and UI/UX Specialist" class="hero-avatar-img" />
                   <div class="hero-avatar-overlay">
                     <div>
                       <div class="avatar-info-name">Akbar Hari Mukti</div>
-                      <div class="avatar-info-role">Product Designer</div>
+                      <div class="avatar-info-role">Product Designer / UI/UX Specialist</div>
                     </div>
+                    <span class="hero-avatar-mark"><i class="ph ph-arrow-down-right"></i></span>
                   </div>
                 </div>
               </div>
             </div>
+            <div class="hero-stage-caption"><span>SELECTED WORK & THINKING</span><span>PORTFOLIO · 2026</span></div>
           </div>
+
+
         </div>
       </section>
 
@@ -1220,6 +1135,50 @@
               </div>
             </div>
           </div>
+
+          <!-- Product Designer Tools Marquee -->
+          <div class="tools-marquee-section" aria-label="Product design tools and AI tools">
+            <div class="tools-marquee-heading">
+              <h3>Tools I Use <span>&amp; Explore</span></h3>
+              <p>A focused toolkit for design, research, building, and AI.</p>
+            </div>
+            <div class="tools-marquee" role="region" aria-label="Scrolling list of product design tools">
+              <div class="tools-marquee-track">
+                <div class="tools-marquee-group">
+                  <span class="tool-logo-item"><img src="https://cdn.simpleicons.org/figma/FFFFFF" alt="" loading="lazy" decoding="async" onerror="this.hidden=true"><span>Figma</span></span>
+                  <span class="tool-logo-item"><img src="https://cdn.simpleicons.org/maze/FFFFFF" alt="" loading="lazy" decoding="async" onerror="this.hidden=true"><span>Maze</span></span>
+                  <span class="tool-logo-item"><img src="https://cdn.simpleicons.org/miro/FFFFFF" alt="" loading="lazy" decoding="async" onerror="this.hidden=true"><span>Miro</span></span>
+                  <span class="tool-logo-item"><img src="https://cdn.simpleicons.org/notion/FFFFFF" alt="" loading="lazy" decoding="async" onerror="this.hidden=true"><span>Notion</span></span>
+                  <span class="tool-logo-item"><img src="https://cdn.simpleicons.org/hotjar/FFFFFF" alt="" loading="lazy" decoding="async" onerror="this.hidden=true"><span>Hotjar</span></span>
+                  <span class="tool-logo-item"><img src="https://cdn.simpleicons.org/googleanalytics/FFFFFF" alt="" loading="lazy" decoding="async" onerror="this.hidden=true"><span>Analytics</span></span>
+                  <span class="tool-logo-item"><img src="https://cdn.simpleicons.org/adobephotoshop/FFFFFF" alt="" loading="lazy" decoding="async" onerror="this.hidden=true"><span>Photoshop</span></span>
+                  <span class="tool-logo-item"><img src="https://cdn.simpleicons.org/framer/FFFFFF" alt="" loading="lazy" decoding="async" onerror="this.hidden=true"><span>Framer</span></span>
+                  <span class="tool-logo-item"><img src="https://cdn.simpleicons.org/wordpress/FFFFFF" alt="" loading="lazy" decoding="async" onerror="this.hidden=true"><span>WordPress</span></span>
+                  <span class="tool-logo-item"><img src="https://cdn.simpleicons.org/visualstudiocode/FFFFFF" alt="" loading="lazy" decoding="async" onerror="this.hidden=true"><span>VS Code</span></span>
+                  <span class="tool-logo-item"><img src="https://cdn.simpleicons.org/github/FFFFFF" alt="" loading="lazy" decoding="async" onerror="this.hidden=true"><span>GitHub</span></span>
+                  <span class="tool-logo-item"><img src="https://cdn.simpleicons.org/openai/FFFFFF" alt="" loading="lazy" decoding="async" onerror="this.hidden=true"><span>ChatGPT</span></span>
+                  <span class="tool-logo-item"><img src="https://cdn.simpleicons.org/anthropic/FFFFFF" alt="" loading="lazy" decoding="async" onerror="this.hidden=true"><span>Claude</span></span>
+                  <span class="tool-logo-item"><img src="https://cdn.simpleicons.org/googlegemini/FFFFFF" alt="" loading="lazy" decoding="async" onerror="this.hidden=true"><span>Gemini</span></span>
+                </div>
+                <div class="tools-marquee-group" aria-hidden="true">
+                  <span class="tool-logo-item"><img src="https://cdn.simpleicons.org/figma/FFFFFF" alt="" loading="lazy" decoding="async" onerror="this.hidden=true"><span>Figma</span></span>
+                  <span class="tool-logo-item"><img src="https://cdn.simpleicons.org/maze/FFFFFF" alt="" loading="lazy" decoding="async" onerror="this.hidden=true"><span>Maze</span></span>
+                  <span class="tool-logo-item"><img src="https://cdn.simpleicons.org/miro/FFFFFF" alt="" loading="lazy" decoding="async" onerror="this.hidden=true"><span>Miro</span></span>
+                  <span class="tool-logo-item"><img src="https://cdn.simpleicons.org/notion/FFFFFF" alt="" loading="lazy" decoding="async" onerror="this.hidden=true"><span>Notion</span></span>
+                  <span class="tool-logo-item"><img src="https://cdn.simpleicons.org/hotjar/FFFFFF" alt="" loading="lazy" decoding="async" onerror="this.hidden=true"><span>Hotjar</span></span>
+                  <span class="tool-logo-item"><img src="https://cdn.simpleicons.org/googleanalytics/FFFFFF" alt="" loading="lazy" decoding="async" onerror="this.hidden=true"><span>Analytics</span></span>
+                  <span class="tool-logo-item"><img src="https://cdn.simpleicons.org/adobephotoshop/FFFFFF" alt="" loading="lazy" decoding="async" onerror="this.hidden=true"><span>Photoshop</span></span>
+                  <span class="tool-logo-item"><img src="https://cdn.simpleicons.org/framer/FFFFFF" alt="" loading="lazy" decoding="async" onerror="this.hidden=true"><span>Framer</span></span>
+                  <span class="tool-logo-item"><img src="https://cdn.simpleicons.org/wordpress/FFFFFF" alt="" loading="lazy" decoding="async" onerror="this.hidden=true"><span>WordPress</span></span>
+                  <span class="tool-logo-item"><img src="https://cdn.simpleicons.org/visualstudiocode/FFFFFF" alt="" loading="lazy" decoding="async" onerror="this.hidden=true"><span>VS Code</span></span>
+                  <span class="tool-logo-item"><img src="https://cdn.simpleicons.org/github/FFFFFF" alt="" loading="lazy" decoding="async" onerror="this.hidden=true"><span>GitHub</span></span>
+                  <span class="tool-logo-item"><img src="https://cdn.simpleicons.org/openai/FFFFFF" alt="" loading="lazy" decoding="async" onerror="this.hidden=true"><span>ChatGPT</span></span>
+                  <span class="tool-logo-item"><img src="https://cdn.simpleicons.org/anthropic/FFFFFF" alt="" loading="lazy" decoding="async" onerror="this.hidden=true"><span>Claude</span></span>
+                  <span class="tool-logo-item"><img src="https://cdn.simpleicons.org/googlegemini/FFFFFF" alt="" loading="lazy" decoding="async" onerror="this.hidden=true"><span>Gemini</span></span>
+                </div>
+              </div>
+            </div>
+          </div>
         </div>
       </section>
 
@@ -1814,9 +1773,6 @@
       <i class="ph ph-check-circle" style="color: var(--accent-orange); font-size: 1.15rem;"></i>
       <span id="toast-message">Notification</span>
     </div>
-
-    <!-- 3D Studio & Dynamic Fluid Canvas Interactive Engine -->
-    <script src="js/background.js"></script>
 
     <!-- Main JavaScript Logic -->
     <script src="js/main.js"></script>
