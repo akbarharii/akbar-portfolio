@@ -678,3 +678,43 @@ function initScrollAnimations() {
   updateActiveNav();
 }
 
+/* =========================================
+   TOOLKIT MARQUEE - SEAMLESS INFINITE LOOP
+========================================= */
+
+function initToolkitMarquee() {
+  document.querySelectorAll('.toolkit-marquee-track').forEach(track => {
+    const groups = track.querySelectorAll('.toolkit-marquee-group');
+    const original = groups[0];
+    const duplicate = groups[1];
+
+    if (!original || !duplicate) return;
+
+    const baseContent = original.innerHTML;
+
+    // Reset before recalculating
+    original.innerHTML = baseContent;
+
+    const requiredWidth = track.parentElement.clientWidth * 1.2;
+
+    // Fill the row to prevent empty spaces
+    while (original.scrollWidth < requiredWidth) {
+      original.insertAdjacentHTML('beforeend', baseContent);
+    }
+
+    // Duplicate for seamless looping
+    duplicate.innerHTML = original.innerHTML;
+  });
+}
+
+window.addEventListener('load', initToolkitMarquee);
+
+let toolkitResizeTimer;
+
+window.addEventListener('resize', () => {
+  clearTimeout(toolkitResizeTimer);
+
+  toolkitResizeTimer = setTimeout(() => {
+    initToolkitMarquee();
+  }, 200);
+});
