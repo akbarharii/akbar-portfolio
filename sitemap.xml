@@ -6,15 +6,59 @@
   <!-- Akbar Hari Mukti - Portfolio Main Page -->
   <url>
     <loc>https://akbarhari.vercel.app/</loc>
-    <lastmod>2026-10-17</lastmod>
+    <lastmod>2026-10-30</lastmod>
     <changefreq>weekly</changefreq>
     <priority>1.0</priority>
+  </url>
+
+  <!-- In-Depth Project Case Studies -->
+  <url>
+    <loc>https://akbarhari.vercel.app/project-detail.html?id=project-1</loc>
+    <lastmod>2026-10-30</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.85</priority>
+  </url>
+  <url>
+    <loc>https://akbarhari.vercel.app/project-detail.html?id=project-2</loc>
+    <lastmod>2026-10-30</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.85</priority>
+  </url>
+  <url>
+    <loc>https://akbarhari.vercel.app/project-detail.html?id=project-3</loc>
+    <lastmod>2026-10-30</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.85</priority>
+  </url>
+  <url>
+    <loc>https://akbarhari.vercel.app/project-detail.html?id=project-4</loc>
+    <lastmod>2026-10-30</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.85</priority>
+  </url>
+  <url>
+    <loc>https://akbarhari.vercel.app/project-detail.html?id=project-5</loc>
+    <lastmod>2026-10-30</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.85</priority>
+  </url>
+  <url>
+    <loc>https://akbarhari.vercel.app/project-detail.html?id=project-6</loc>
+    <lastmod>2026-10-30</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.85</priority>
+  </url>
+  <url>
+    <loc>https://akbarhari.vercel.app/project-detail.html?id=project-7</loc>
+    <lastmod>2026-10-30</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.85</priority>
   </url>
 
   <!-- PDF Portfolio Asset -->
   <url>
     <loc>https://akbarhari.vercel.app/assets/pdf/akbar_hari_portfolio_2026.pdf</loc>
-    <lastmod>2026-10-17</lastmod>
+    <lastmod>2026-10-30</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>

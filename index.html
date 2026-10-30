@@ -105,266 +105,12 @@
       rel="stylesheet"
     />
 
-    <!-- Phosphor Icons (Free Version) -->
+    <!-- Phosphor Icons (WebFont CSS Only) -->
     <link rel="stylesheet" type="text/css" href="https://unpkg.com/@phosphor-icons/web@2.1.1/src/regular/style.css" />
-    <script src="https://unpkg.com/@phosphor-icons/web"></script>
-<link rel="stylesheet" href="css/style.css" />
-    <link rel="icon" type="image/jpeg" href="assets/thumbs/akbar_avatar.jpg" />
+    <link rel="stylesheet" href="css/style.css" />
+    <link rel="icon" type="image/png" sizes="64x64" href="assets/thumbs/favicon.png" />
 
-    <!-- Self-contained Responsive & Accordion Overhauls (Khusus index.html) -->
-    <style>
-      /* Mobile-First Header & Navbar Cleanups */
-      @media (max-width: 768px) {
-        .header .navbar {
-          height: 60px !important;
-        }
-        .nav-brand .brand-title {
-          display: none !important;
-        }
-        .nav-actions .btn-wa-header,
-        .nav-actions .status-badge {
-          display: none !important; /* Hide wide navbar buttons on mobile to prevent overflow */
-        }
-        .btn-contact-nav-trigger {
-          display: inline-flex !important;
-        }
-        .hero {
-          padding: 3rem 0 2rem !important;
-        }
-        .hero-title {
-          font-size: 2.25rem !important;
-          line-height: 1.15 !important;
-        }
-        .hero-subtitle {
-          font-size: 1rem !important;
-          line-height: 1.6 !important;
-        }
-        .hero-stats-row {
-          grid-template-columns: repeat(2, 1fr) !important;
-          gap: 1.25rem !important;
-        }
-        .stat-number {
-          font-size: 1.6rem !important;
-        }
-        .hero-avatar-img {
-          height: 260px !important;
-        }
-        .who-am-i-container {
-          grid-template-columns: 1fr !important;
-          gap: 1.5rem !important;
-        }
-        .who-card-main {
-          padding: 1.5rem !important;
-        }
-        .capabilities-list-box {
-          padding: 1.25rem !important;
-        }
-        .filter-toolbar {
-          gap: 0.35rem !important;
-          overflow-x: auto;
-          padding-bottom: 0.5rem;
-          flex-wrap: nowrap !important;
-        }
-        .filter-btn {
-          white-space: nowrap !important;
-        }
-        .footer-content {
-          flex-direction: column !important;
-          align-items: center !important;
-          text-align: center;
-          gap: 1.25rem !important;
-        }
-        .footer-links {
-          flex-wrap: wrap !important;
-          justify-content: center !important;
-          gap: 0.85rem !important;
-        }
-      }
 
-      /* Quick Contact Nav Button (Mobile Friendly) */
-      .btn-contact-nav-trigger {
-        display: none;
-        align-items: center;
-        gap: 6px;
-        padding: 5px 12px;
-        border-radius: var(--radius-full);
-        background: rgba(245, 79, 27, 0.15);
-        border: 1px solid var(--accent-orange);
-        color: #fff;
-        font-size: 0.76rem;
-        font-family: var(--font-mono);
-        cursor: pointer;
-      }
-
-      /* Expand / Collapse Accordion Component */
-      .accordion-item {
-        border-bottom: 1px solid rgba(255, 255, 255, 0.08);
-        padding: 0.75rem 0;
-        transition: background 0.2s ease;
-      }
-      .accordion-item:last-child {
-        border-bottom: none;
-      }
-      .accordion-summary {
-        display: flex;
-        align-items: center;
-        justify-content: space-between;
-        cursor: pointer;
-        list-style: none;
-        user-select: none;
-        padding: 0.35rem 0;
-      }
-      .accordion-summary::-webkit-details-marker {
-        display: none;
-      }
-      .accordion-title-wrap {
-        display: flex;
-        align-items: center;
-        gap: 10px;
-      }
-      .accordion-badge {
-        font-family: var(--font-mono);
-        font-size: 0.7rem;
-        font-weight: 700;
-        padding: 3px 8px;
-        border-radius: var(--radius-xs);
-        background: rgba(30, 5, 193, 0.25);
-        border: 1px solid rgba(30, 5, 193, 0.5);
-        color: #a5b4fc;
-        flex-shrink: 0;
-      }
-      .accordion-title {
-        font-size: 0.96rem;
-        font-weight: 700;
-        color: var(--text-main);
-      }
-      .accordion-icon {
-        width: 18px;
-        height: 18px;
-        color: var(--text-muted);
-        transition:
-          transform 0.25s ease,
-          color 0.25s ease;
-        flex-shrink: 0;
-      }
-      details[open] .accordion-icon {
-        transform: rotate(180deg);
-        color: var(--accent-orange);
-      }
-      details[open] .accordion-title {
-        color: var(--accent-orange);
-      }
-      .accordion-content {
-        padding: 0.5rem 0 0.5rem 2rem;
-        font-size: 0.86rem;
-        color: var(--text-secondary);
-        line-height: 1.6;
-      }
-
-      /* Contact Popup Modal */
-      .contact-popup-backdrop {
-        position: fixed;
-        inset: 0;
-        background: rgba(0, 0, 0, 0.88);
-        backdrop-filter: blur(14px);
-        -webkit-backdrop-filter: blur(14px);
-        z-index: 1050;
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        padding: 1.25rem;
-        opacity: 0;
-        pointer-events: none;
-        transition: opacity 0.25s ease;
-      }
-      .contact-popup-backdrop.open {
-        opacity: 1;
-        pointer-events: auto;
-      }
-      .contact-popup-card {
-        background: rgba(10, 13, 20, 0.88);
-        backdrop-filter: blur(28px) saturate(190%);
-        -webkit-backdrop-filter: blur(28px) saturate(190%);
-        border: 1px solid rgba(255, 255, 255, 0.14);
-        border-radius: var(--radius-md);
-        width: 100%;
-        max-width: 420px;
-        padding: 1.75rem;
-        position: relative;
-        box-shadow: 
-          inset 0 1px 1px 0 rgba(255, 255, 255, 0.22),
-          0 30px 70px rgba(0, 0, 0, 0.95);
-        transform: translateY(14px);
-        transition: transform 0.25s ease;
-      }
-      .contact-popup-backdrop.open .contact-popup-card {
-        transform: translateY(0);
-      }
-      .contact-popup-close {
-        position: absolute;
-        top: 14px;
-        right: 14px;
-        background: transparent;
-        border: 1px solid rgba(255, 255, 255, 0.1);
-        color: var(--text-secondary);
-        width: 32px;
-        height: 32px;
-        border-radius: var(--radius-xs);
-        cursor: pointer;
-        display: flex;
-        align-items: center;
-        justify-content: center;
-      }
-      .contact-popup-title {
-        font-size: 1.35rem;
-        font-weight: 800;
-        margin-bottom: 0.35rem;
-        color: #fff;
-      }
-      .contact-popup-sub {
-        font-size: 0.88rem;
-        color: var(--text-secondary);
-        margin-bottom: 1.5rem;
-      }
-      .popup-contact-list {
-        display: flex;
-        flex-direction: column;
-        gap: 0.75rem;
-        margin-bottom: 1.25rem;
-      }
-      .popup-contact-btn {
-        display: flex;
-        align-items: center;
-        justify-content: space-between;
-        padding: 0.85rem 1rem;
-        border-radius: var(--radius-sm);
-        background: #131720;
-        border: 1px solid rgba(255, 255, 255, 0.08);
-        color: var(--text-main);
-        transition: all 0.2s ease;
-      }
-      .popup-contact-btn:hover {
-        background: #181d28;
-        border-color: var(--accent-orange);
-      }
-      .popup-contact-info {
-        display: flex;
-        align-items: center;
-        gap: 10px;
-        font-size: 0.88rem;
-      }
-      .popup-contact-info svg {
-        width: 18px;
-        height: 18px;
-        color: var(--accent-orange);
-        flex-shrink: 0;
-      }
-      .popup-action-tag {
-        font-family: var(--font-mono);
-        font-size: 0.72rem;
-        color: var(--accent-orange);
-      }
-    </style>
   </head>
   <body>
     <!-- Sticky Header Navigation -->
@@ -492,7 +238,14 @@
             <div class="hero-visual-col">
               <div class="hero-visual-card">
                 <div class="hero-avatar-wrapper">
-                  <img src="assets/thumbs/akbar_avatar.jpg" alt="Akbar Hari Mukti — Product Designer and UI/UX Specialist" class="hero-avatar-img" />
+                  <img
+                    src="assets/thumbs/akbar_avatar_hero.jpg"
+                    alt="Akbar Hari Mukti — Product Designer and UI/UX Specialist"
+                    class="hero-avatar-img"
+                    width="600"
+                    height="600"
+                    fetchpriority="high"
+                  />
                   <div class="hero-avatar-overlay">
                     <div>
                       <div class="avatar-info-name">Akbar Hari Mukti</div>
@@ -768,31 +521,28 @@
           <div class="section-header">
             <h2 class="section-title">Selected Works</h2>
             <p class="section-desc">
-              With <strong>50+ completed projects</strong> across industries,
-              here are 7 featured in-depth case studies highlighting end-to-end
-              UX research, system design, and production delivery.
+              A selection of digital products and experiences across fintech,
+              enterprise, smart mobility, IoT, and education — from early
+              product thinking to production-ready interfaces.
             </p>
           </div>
 
           <!-- Filter Categories (Horizontal swipe on mobile) -->
-          <div class="filter-toolbar">
-            <button class="filter-btn active" data-filter="all">All (7)</button>
-            <button class="filter-btn" data-filter="web">
-              Enterprise & Web (2)
-            </button>
-            <button class="filter-btn" data-filter="mobile">
-              Mobile Apps (3)
-            </button>
-            <button class="filter-btn" data-filter="saas">
-              IoT & SaaS (2)
-            </button>
-            <button class="filter-btn" data-filter="edtech">EdTech (1)</button>
+          <div class="projects-controls">
+            <div class="filter-toolbar" role="group" aria-label="Filter projects">
+              <button class="filter-btn active" type="button" data-filter="all" aria-pressed="true">All <span>07</span></button>
+              <button class="filter-btn" type="button" data-filter="web" aria-pressed="false">Enterprise & Web <span>01</span></button>
+              <button class="filter-btn" type="button" data-filter="mobile" aria-pressed="false">Mobile Apps <span>03</span></button>
+              <button class="filter-btn" type="button" data-filter="saas" aria-pressed="false">IoT & SaaS <span>02</span></button>
+              <button class="filter-btn" type="button" data-filter="edtech" aria-pressed="false">EdTech <span>01</span></button>
+            </div>
+            <p class="filter-results-count" id="project-results-count" aria-live="polite">Showing 7 selected projects</p>
           </div>
 
           <!-- Projects Grid -->
           <div class="projects-grid">
             <!-- Project 1: PT AICC (LIVE SITE) -->
-            <article class="project-card" data-category="web">
+            <article class="project-card project-card--featured" data-category="web">
               <div class="project-media-wrapper">
                 <img
                   src="assets/thumbs/thumb_proj_8.jpg"
@@ -812,6 +562,7 @@
                   automotive manufacturing company into a modern, responsive
                   showcase.
                 </p>
+                <div class="project-meta"><span>UI/UX Design</span><span>2024</span></div>
                 <div class="project-footer">
                   <div class="project-action-links">
                     <a
@@ -825,10 +576,10 @@
                       <i class="ph ph-arrow-up-right"></i>
                     </a>
                   </div>
-                  <button class="btn-case-study" data-open-project="project-1">
+                  <a href="project-detail.html?id=project-1" class="btn-case-study" title="Read full case study">
                     Case Study
                     <i class="ph ph-arrow-right"></i>
-                  </button>
+                  </a>
                 </div>
               </div>
             </article>
@@ -854,14 +605,15 @@
                   selling, and renting properties with instant WhatsApp agent
                   connections.
                 </p>
+                <div class="project-meta"><span>UI/UX Design</span><span>2024–2025</span></div>
                 <div class="project-footer">
                   <span class="offline-badge"
                     ><span class="offline-dot"></span> Offline</span
                   >
-                  <button class="btn-case-study" data-open-project="project-2">
+                  <a href="project-detail.html?id=project-2" class="btn-case-study" title="Read full case study">
                     Case Study
                     <i class="ph ph-arrow-right"></i>
-                  </button>
+                  </a>
                 </div>
               </div>
             </article>
@@ -886,14 +638,15 @@
                   Dark-aesthetic mobile application for digital gym membership
                   registration, trainer calendar booking, and workout tracking.
                 </p>
+                <div class="project-meta"><span>UI/UX Design</span><span>2024</span></div>
                 <div class="project-footer">
                   <span class="offline-badge"
                     ><span class="offline-dot"></span> Offline</span
                   >
-                  <button class="btn-case-study" data-open-project="project-3">
+                  <a href="project-detail.html?id=project-3" class="btn-case-study" title="Read full case study">
                     Case Study
                     <i class="ph ph-arrow-right"></i>
-                  </button>
+                  </a>
                 </div>
               </div>
             </article>
@@ -919,14 +672,15 @@
                   digital QR ticket purchases, live train arrivals, and virtual
                   assistant Carla.
                 </p>
+                <div class="project-meta"><span>UI/UX Design</span><span>2025</span></div>
                 <div class="project-footer">
                   <span class="offline-badge"
                     ><span class="offline-dot"></span> Offline</span
                   >
-                  <button class="btn-case-study" data-open-project="project-4">
+                  <a href="project-detail.html?id=project-4" class="btn-case-study" title="Read full case study">
                     Case Study
                     <i class="ph ph-arrow-right"></i>
-                  </button>
+                  </a>
                 </div>
               </div>
             </article>
@@ -954,6 +708,7 @@
                   vessels, telemetry sensors, and high-value industrial
                   equipment.
                 </p>
+                <div class="project-meta"><span>UI/UX Design</span><span>2024–2025</span></div>
                 <div class="project-footer">
                   <div class="project-action-links">
                     <a
@@ -967,10 +722,10 @@
                       <i class="ph ph-arrow-up-right"></i>
                     </a>
                   </div>
-                  <button class="btn-case-study" data-open-project="project-5">
+                  <a href="project-detail.html?id=project-5" class="btn-case-study" title="Read full case study">
                     Case Study
                     <i class="ph ph-arrow-right"></i>
-                  </button>
+                  </a>
                 </div>
               </div>
             </article>
@@ -996,14 +751,15 @@
                   high-density, error-free web system with automated weight
                   ticket generation.
                 </p>
+                <div class="project-meta"><span>Product Design</span><span>2024</span></div>
                 <div class="project-footer">
                   <span class="offline-badge"
                     ><span class="offline-dot"></span> Offline</span
                   >
-                  <button class="btn-case-study" data-open-project="project-6">
+                  <a href="project-detail.html?id=project-6" class="btn-case-study" title="Read full case study">
                     Case Study
                     <i class="ph ph-arrow-right"></i>
-                  </button>
+                  </a>
                 </div>
               </div>
             </article>
@@ -1029,6 +785,7 @@
                   experience to improve course accessibility and student
                   retention.
                 </p>
+                <div class="project-meta"><span>UI/UX Design · Internship</span><span>2023–2024</span></div>
                 <div class="project-footer">
                   <div class="project-action-links">
                     <a
@@ -1042,10 +799,10 @@
                       <i class="ph ph-arrow-up-right"></i>
                     </a>
                   </div>
-                  <button class="btn-case-study" data-open-project="project-7">
+                  <a href="project-detail.html?id=project-7" class="btn-case-study" title="Read full case study">
                     Case Study
                     <i class="ph ph-arrow-right"></i>
-                  </button>
+                  </a>
                 </div>
               </div>
             </article>
@@ -1526,6 +1283,8 @@
       id="quick-contact-modal"
       role="dialog"
       aria-modal="true"
+      aria-labelledby="contact-popup-title"
+      tabindex="-1"
     >
       <div class="contact-popup-card">
         <button
@@ -1535,7 +1294,7 @@
         >
           ✕
         </button>
-        <h3 class="contact-popup-title">Contact Me</h3>
+        <h3 class="contact-popup-title" id="contact-popup-title">Contact Me</h3>
         <p class="contact-popup-sub">
           Choose the communication channel that's most convenient for you:
         </p>
@@ -1624,6 +1383,8 @@
       id="case-study-modal"
       role="dialog"
       aria-modal="true"
+      aria-labelledby="modal-title"
+      tabindex="-1"
     >
       <div class="modal-window">
         <!-- Modal Header -->
@@ -1752,59 +1513,8 @@
       <span id="toast-message">Notification</span>
     </div>
 
-    <!-- Main JavaScript Logic -->
+    <!-- Master Projects Database & Main Interactive Engine -->
+    <script src="js/projects-data.js"></script>
     <script src="js/main.js"></script>
-
-    <!-- Quick Contact Popup Inline Script (Self-contained in index.html) -->
-    <script>
-      document.addEventListener("DOMContentLoaded", () => {
-        const popupModal = document.getElementById("quick-contact-modal");
-        const openTriggers = document.querySelectorAll(
-          "[data-open-contact-popup]",
-        );
-        const closeTriggers = document.querySelectorAll(
-          "[data-close-contact-popup]",
-        );
-
-        if (popupModal) {
-          openTriggers.forEach((btn) => {
-            btn.addEventListener("click", (e) => {
-              e.preventDefault();
-              // Close mobile menu drawer if open
-              const mobileNav = document.getElementById("mobile-nav-drawer");
-              const mobileToggle =
-                document.getElementById("mobile-menu-toggle");
-              if (mobileNav && mobileNav.classList.contains("open")) {
-                mobileNav.classList.remove("open");
-                if (mobileToggle) mobileToggle.classList.remove("active");
-              }
-              popupModal.classList.add("open");
-              document.body.style.overflow = "hidden";
-            });
-          });
-
-          closeTriggers.forEach((btn) => {
-            btn.addEventListener("click", () => {
-              popupModal.classList.remove("open");
-              document.body.style.overflow = "";
-            });
-          });
-
-          popupModal.addEventListener("click", (e) => {
-            if (e.target === popupModal) {
-              popupModal.classList.remove("open");
-              document.body.style.overflow = "";
-            }
-          });
-
-          document.addEventListener("keydown", (e) => {
-            if (e.key === "Escape" && popupModal.classList.contains("open")) {
-              popupModal.classList.remove("open");
-              document.body.style.overflow = "";
-            }
-          });
-        }
-      });
-    </script>
   </body>
 </html>
