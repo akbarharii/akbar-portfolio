@@ -13,6 +13,7 @@ document.addEventListener('DOMContentLoaded', () => {
   initLightbox();
   initScrollAnimations();
   initQuickContactModal();
+  initHeaderBehavior();
 });
 
 // ==========================================
@@ -436,10 +437,6 @@ function initScrollAnimations() {
   const targets = [
     // Section headers
     ...document.querySelectorAll('.section-header'),
-    // Hero elements
-    document.querySelector('.hero-text-col'),
-    document.querySelector('.hero-visual-card'),
-    document.querySelector('.hero-stats-row'),
     // About section cards
     document.querySelector('.who-card-main'),
     document.querySelector('.capabilities-list-box'),
@@ -629,4 +626,37 @@ function initQuickContactModal() {
       }
     }
   });
+}
+
+// ==========================================
+// 10. Aurelia Hero Section Features (Header Blur, Model Switcher, Play Action)
+// ==========================================
+function initHeaderBehavior() {
+  // 1. Sticky header backdrop blur on scroll
+  const header = document.querySelector('.header.aurelia-header');
+  if (header) {
+    const handleScroll = () => {
+      if (window.scrollY > 40) {
+        header.classList.add('is-scrolled');
+      } else {
+        header.classList.remove('is-scrolled');
+      }
+    };
+    window.addEventListener('scroll', handleScroll, { passive: true });
+    handleScroll();
+  }
+
+  // 2. Mobile drawer close button
+  const closeBtn = document.getElementById('mobile-menu-close');
+  const mobileNav = document.getElementById('mobile-nav-drawer');
+  const toggleBtn = document.getElementById('mobile-menu-toggle');
+  if (closeBtn && mobileNav) {
+    closeBtn.addEventListener('click', () => {
+      mobileNav.classList.remove('open');
+      if (toggleBtn) {
+        toggleBtn.classList.remove('active');
+        toggleBtn.setAttribute('aria-expanded', 'false');
+      }
+    });
+  }
 }

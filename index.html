@@ -97,11 +97,11 @@
       }
     </script>
 
-    <!-- Google Fonts: Bricolage Grotesque & JetBrains Mono -->
+    <!-- Google Fonts: Anton, DM Sans, JetBrains Mono & Plus Jakarta Sans -->
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
-      href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,300;400;500;600;700;800&family=JetBrains+Mono:wght@400;500;600;700&display=swap"
+      href="https://fonts.googleapis.com/css2?family=Anton&family=DM+Sans:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500;600;700&family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap"
       rel="stylesheet"
     />
 
@@ -109,61 +109,63 @@
     <link rel="stylesheet" type="text/css" href="https://unpkg.com/@phosphor-icons/web@2.1.1/src/regular/style.css" />
     <link rel="stylesheet" href="css/style.css" />
     <link rel="icon" type="image/png" sizes="64x64" href="assets/thumbs/favicon.png" />
-
-
   </head>
   <body>
-    <!-- Sticky Header Navigation -->
-    <header class="header">
-      <div class="container">
-        <nav class="navbar">
+    <!-- Sticky Header Navigation: Aurelia Aesthetic -->
+    <header class="header aurelia-header">
+      <div class="header-container">
+        <nav class="navbar aurelia-navbar">
+          <!-- Brand Logo with 4-Point Star -->
           <a
             href="#home"
-            class="nav-brand"
-            aria-label="Akbar Hari Mukti Homepage"
+            class="nav-brand-aurelia"
+            aria-label="Akbar Hari Mukti Portfolio Homepage"
           >
-            <!-- <div class="brand-symbol">A</div> -->
-            <div class="brand-text">
-              <span class="brand-name">Akbar Hari Mukti</span>
-              <span class="brand-title">Product Designer</span>
+            <span class="brand-star-mark" aria-hidden="true">
+              <svg viewBox="0 0 40 40" width="30" height="30" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <path d="M20 0C20 11.0457 28.9543 20 40 20C28.9543 20 20 28.9543 20 40C20 28.9543 11.0457 20 0 20C11.0457 20 20 11.0457 20 0Z" fill="#CCFF00"/>
+                <path d="M20 6L21.5 18.5L34 20L21.5 21.5L20 34L18.5 21.5L6 20L18.5 18.5L20 6Z" fill="#CCFF00"/>
+              </svg>
+            </span>
+            <div class="brand-logotype">
+              <span class="brand-name">AKBAR HARI MUKTI</span>
+              <span class="brand-sub">PRODUCT DESIGNER</span>
             </div>
           </a>
 
           <!-- Desktop Navigation Links -->
-          <ul class="nav-links">
-            <li><a href="#about" class="nav-link">Who Am I</a></li>
-            <li><a href="#process" class="nav-link">Process</a></li>
-            <li><a href="#projects" class="nav-link">Projects</a></li>
-            <li><a href="#toolkit" class="nav-link">Toolkit</a></li>
-            <li><a href="#creator" class="nav-link">Creator</a></li>
-            <li><a href="#contact" class="nav-link">Contact</a></li>
+          <ul class="nav-links aurelia-nav-links">
+            <li><a href="#home" class="nav-link active">HOME</a></li>
+            <li><a href="#about" class="nav-link">ABOUT</a></li>
+            <li><a href="#process" class="nav-link">PROCESS</a></li>
+            <li><a href="#projects" class="nav-link">PORTFOLIO</a></li>
+            <li><a href="#toolkit" class="nav-link">TOOLKIT</a></li>
+            <li><a href="#contact" class="nav-link">CONTACT</a></li>
           </ul>
 
-          <!-- Action Area: Desktop WA button + Mobile Popup Trigger -->
-          <div class="nav-actions">
+          <!-- Action Area: Phone Badge + Mobile Toggle -->
+          <div class="nav-actions aurelia-nav-actions">
             <a
               href="https://wa.me/6285839328549"
               target="_blank"
               rel="noopener noreferrer"
-              class="btn btn-wa-header"
-              title="Chat via WhatsApp"
+              class="aurelia-phone-badge"
+              title="Contact via WhatsApp / Phone"
             >
-              <i class="ph ph-whatsapp-logo"></i>
-              <span>Free Consultation</span>
+              <span class="phone-icon-pill" aria-hidden="true">
+                <svg viewBox="0 0 24 24" width="20" height="20" fill="currentColor">
+                  <path d="M6.62 10.79a15.053 15.053 0 006.59 6.59l2.2-2.2a1 1 0 011.02-.24c1.12.37 2.33.57 3.57.57a1 1 0 011 1V20a1 1 0 01-1 1A17 17 0 013 4a1 1 0 011-1h3.5a1 1 0 011 1c0 1.25.2 2.45.57 3.57a1 1 0 01-.25 1.02l-2.2 2.2z"/>
+                </svg>
+              </span>
+              <div class="phone-text-block">
+                <span class="phone-label">LET'S TALK</span>
+                <span class="phone-number">+62 858 3932 8549</span>
+              </div>
             </a>
-
-            <!-- Mobile Quick Contact Button -->
-            <button
-              class="btn-contact-nav-trigger"
-              data-open-contact-popup
-              aria-label="Open contact popup"
-            >
-              <span>Contact</span>
-            </button>
 
             <!-- Mobile Menu Drawer Toggle -->
             <button
-              class="mobile-toggle"
+              class="mobile-toggle aurelia-mobile-toggle"
               id="mobile-menu-toggle"
               aria-label="Toggle navigation menu"
             >
@@ -177,89 +179,197 @@
     </header>
 
     <!-- Mobile Drawer Menu (Uncluttered) -->
-    <div class="mobile-nav" id="mobile-nav-drawer">
+    <div class="mobile-nav aurelia-mobile-nav" id="mobile-nav-drawer">
+      <div class="mobile-nav-header">
+        <span class="mobile-brand-title">AKBAR HARI MUKTI</span>
+        <button class="mobile-nav-close" id="mobile-menu-close" aria-label="Close menu">&times;</button>
+      </div>
       <a href="#home">Home</a>
-      <a href="#about">Who Am I</a>
-      <a href="#process">Design Process</a>
-      <a href="#projects">Projects (50+ Done)</a>
+      <a href="#about">About</a>
+      <a href="#process">Process</a>
+      <a href="#projects">Portfolio</a>
       <a href="#toolkit">Toolkit</a>
-      <a href="#creator">Creator &amp; Content</a>
-      <!-- Contact Popup Trigger Inside Mobile Menu -->
-      <a
-        href="#"
-        data-open-contact-popup
-        style="color: var(--accent-orange); font-weight: 700"
-      >
-        💬 Free Consultation
-      </a>
+      <a href="#contact">Contact</a>
+      <div class="mobile-nav-footer">
+        <a
+          href="https://wa.me/6285839328549"
+          target="_blank"
+          rel="noopener noreferrer"
+          class="btn-mobile-call"
+        >
+          <svg viewBox="0 0 24 24" width="18" height="18" fill="currentColor"><path d="M6.62 10.79a15.053 15.053 0 006.59 6.59l2.2-2.2a1 1 0 011.02-.24c1.12.37 2.33.57 3.57.57a1 1 0 011 1V20a1 1 0 01-1 1A17 17 0 013 4a1 1 0 011-1h3.5a1 1 0 011 1c0 1.25.2 2.45.57 3.57a1 1 0 01-.25 1.02l-2.2 2.2z"/></svg>
+          <span>+62 858 3932 8549</span>
+        </a>
+      </div>
     </div>
 
     <main>
-      <!-- Hero Section: editorial, centered composition -->
-      <section class="hero hero-editorial" id="home">
-        <div class="container">
-          <div class="hero-editorial-intro">
-            <div class="hero-availability"><span class="availability-dot"></span> Product Designer · UI/UX Specialist</div>
-            <h1 class="hero-title">
-              Good Design
-              <span class="hero-title-emphasis">Clear Thinking <em>Better Experiences</em></span>
-            </h1>
-            <p class="hero-subtitle">
-              Hello, I’m <strong>Akbar Hari Mukti</strong> — a Product Designer with
-              <strong>5+ years of experience</strong>, turning complex ideas into
-              intuitive, thoughtful experiences across fintech, crypto, enterprise, and IoT.
-            </p>
-            <div class="hero-cta-group">
-              <a href="#projects" class="btn btn-primary">Explore selected work <i class="ph ph-arrow-up-right"></i></a>
-              <a href="https://wa.me/6285839328549" target="_blank" rel="noopener noreferrer" class="btn btn-secondary">
-                <i class="ph ph-chat-circle-dots"></i><span>Let’s talk</span>
-              </a>
-            </div>
-            <div class="social-links-bar" aria-label="Social profiles">
-              <a href="https://www.linkedin.com/in/akbarharimukti/" target="_blank" rel="noopener noreferrer" class="social-pill" title="LinkedIn Profile"><i class="ph ph-linkedin-logo"></i><span>LinkedIn</span></a>
-              <a href="https://www.instagram.com/akbarhari21/" target="_blank" rel="noopener noreferrer" class="social-pill" title="Instagram Profile"><i class="ph ph-instagram-logo"></i><span>Instagram</span></a>
-              <a href="https://www.tiktok.com/@akbarhari.design" target="_blank" rel="noopener noreferrer" class="social-pill" title="TikTok Profile"><i class="ph ph-tiktok-logo"></i><span>TikTok</span></a>
-            </div>
-          </div>
+      <!-- Hero Section: Aurelia High-Impact 3D Layered Typography -->
+      <section class="hero hero-aurelia" id="home">
+        <!-- Background Texture Overlay -->
+        <div class="hero-bg-backdrop" aria-hidden="true"></div>
 
-          <div class="hero-editorial-stage">
-            <div class="hero-stage-orbit hero-stage-orbit-one"></div>
-            <div class="hero-stage-orbit hero-stage-orbit-two"></div>
-            <div class="hero-stage-note hero-stage-note-left">
-              <span class="stage-note-icon"><i class="ph ph-compass-tool"></i></span>
-              <span class="stage-note-title">Research first</span>
-              <span class="stage-note-copy">Understand people.<br>Design with purpose.</span>
-            </div>
-            <div class="hero-stage-note hero-stage-note-right">
-              <span class="stage-note-kicker">MY FOCUS</span>
-              <span class="stage-note-title">Less friction.<br>More clarity.</span>
-              <span class="stage-note-copy">UX strategy · Product UI</span>
-            </div>
-            <div class="hero-visual-col">
-              <div class="hero-visual-card">
-                <div class="hero-avatar-wrapper">
-                  <img
-                    src="assets/thumbs/akbar_avatar_hero.jpg"
-                    alt="Akbar Hari Mukti — Product Designer and UI/UX Specialist"
-                    class="hero-avatar-img"
-                    width="600"
-                    height="600"
-                    fetchpriority="high"
-                  />
-                  <div class="hero-avatar-overlay">
-                    <div>
-                      <div class="avatar-info-name">Akbar Hari Mukti</div>
-                      <div class="avatar-info-role">Product Designer / UI/UX Specialist</div>
-                    </div>
-                    <span class="hero-avatar-mark"><i class="ph ph-arrow-down-right"></i></span>
-                  </div>
-                </div>
+        <div class="hero-stage-container">
+          <!-- LEFT COLUMN: Research Note & Statistics -->
+          <div class="hero-col-left">
+            <!-- Research First Note Card -->
+            <div class="hero-team-badge">
+              <div class="hero-note-card">
+                <span class="note-card-label">RESEARCH FIRST</span>
+                <p class="note-card-copy">Understand people.<br>Design with purpose.</p>
               </div>
             </div>
-            <div class="hero-stage-caption"><span>SELECTED WORK & THINKING</span><span>PORTFOLIO · 2026</span></div>
+
+            <!-- Vertical Stats Stack -->
+            <div class="hero-stats-block">
+              <div class="stat-cell">
+                <div class="stat-number">5 <span class="stat-plus">+</span></div>
+                <div class="stat-label">YEARS EXP</div>
+              </div>
+              <div class="stat-cell-divider" aria-hidden="true"></div>
+              <div class="stat-cell">
+                <div class="stat-number">50 <span class="stat-plus">+</span></div>
+                <div class="stat-label">PROJECTS DONE</div>
+              </div>
+              <div class="stat-cell-divider" aria-hidden="true"></div>
+              <div class="stat-cell">
+                <div class="stat-number">100<span class="stat-plus">%</span></div>
+                <div class="stat-label">CLIENT SATISFACTION</div>
+              </div>
+            </div>
           </div>
 
+          <!-- CENTER STAGE: 3D Layered Typography + Cutout Model -->
+          <div class="hero-center-visual">
+            <!-- Kicker above giant text -->
+            <div class="hero-center-kicker" aria-hidden="false">
+              <span>Product Designer · UI/UX Specialist</span>
+            </div>
 
+            <!-- Layer 1: Solid Giant Text BEHIND the person -->
+            <div class="hero-giant-typography hero-typo-solid" aria-hidden="true">
+              <span class="typo-word word-creative">GOOD DESIGN</span>
+              <span class="typo-word word-agency">CLEAR THINKING</span>
+            </div>
+
+            <!-- Layer 2: Transparent Cutout Model -->
+            <div class="hero-model-silhouette">
+              <img
+                id="hero-model-image"
+                src="assets/images/akbar_cutout.png"
+                alt="Akbar Hari Mukti — Product Designer"
+                class="hero-model-img"
+                width="1381"
+                height="1575"
+                fetchpriority="high"
+              />
+            </div>
+
+            <!-- Layer 3: Outline Giant Text IN FRONT of the person -->
+            <div class="hero-giant-typography hero-typo-stroke" aria-hidden="true">
+              <span class="typo-word word-creative">GOOD DESIGN</span>
+              <span class="typo-word word-agency">CLEAR THINKING</span>
+            </div>
+
+            <!-- Name & Role Label (Anchored bottom of center) -->
+            <div class="hero-center-nametag">
+              <span class="nametag-name">Akbar Hari Mukti</span>
+              <span class="nametag-role">Product Designer / UI·UX Specialist</span>
+            </div>
+          </div>
+
+          <!-- RIGHT COLUMN: Focus Badge, Bio, CTA & Socials -->
+          <div class="hero-col-right">
+            <!-- Focus Orbit Badge -->
+            <div class="hero-focus-orb">
+              <div class="focus-orb-ring" aria-hidden="true"></div>
+              <div class="focus-orb-inner">
+                <span class="focus-label">MY FOCUS</span>
+                <span class="focus-tagline">Less friction.<br>More clarity.</span>
+                <span class="focus-sub">UX strategy · Product UI</span>
+              </div>
+            </div>
+
+            <!-- Description & CTA Buttons -->
+            <div class="hero-right-callout">
+              <p class="hero-blurb">
+                Hello, I'm Akbar Hari Mukti — a Product Designer with 5+ years of experience, turning complex ideas into intuitive, thoughtful experiences across fintech, crypto, enterprise, and IoT.
+              </p>
+              <div class="hero-cta-group">
+                <a href="#projects" class="btn-aurelia-pill">
+                  <span>EXPLORE SELECTED WORK</span>
+                  <span class="pill-arrow-circle" aria-hidden="true">
+                    <svg viewBox="0 0 24 24" width="12" height="12" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+                      <line x1="7" y1="17" x2="17" y2="7"></line>
+                      <polyline points="7 7 17 7 17 17"></polyline>
+                    </svg>
+                  </span>
+                </a>
+                <a href="https://wa.me/6285839328549" target="_blank" rel="noopener noreferrer" class="btn-aurelia-pill btn-aurelia-talk">
+                  <span>LET'S TALK</span>
+                  <span class="pill-arrow-circle" aria-hidden="true">
+                    <svg viewBox="0 0 24 24" width="12" height="12" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+                      <line x1="7" y1="17" x2="17" y2="7"></line>
+                      <polyline points="7 7 17 7 17 17"></polyline>
+                    </svg>
+                  </span>
+                </a>
+              </div>
+            </div>
+
+            <!-- Social Links Row -->
+            <div class="hero-social-row">
+              <a href="https://www.linkedin.com/in/akbarharimukti/" target="_blank" rel="noopener noreferrer" class="hero-social-pill" title="LinkedIn">LinkedIn</a>
+              <a href="https://www.instagram.com/akbarhari21/" target="_blank" rel="noopener noreferrer" class="hero-social-pill" title="Instagram">Instagram</a>
+              <a href="https://www.tiktok.com/@akbarhari.design" target="_blank" rel="noopener noreferrer" class="hero-social-pill" title="TikTok">TikTok</a>
+            </div>
+
+            <!-- Bottom Caption -->
+            <div class="hero-bottom-caption">
+              <span>SELECTED WORK & THINKING</span>
+              <span>PORTFOLIO · 2026</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Running text ribbon (horizontal, seamless loop via two identical groups) -->
+        <div class="hero-running-divider" aria-label="Services ticker">
+          <div class="running-ribbon">
+            <div class="running-track">
+              <div class="running-group">
+              <span class="ticker-word">PRODUCT DESIGN</span>
+              <span class="ticker-star" aria-hidden="true">✦</span>
+              <span class="ticker-word">UI/UX SPECIALIST</span>
+              <span class="ticker-star" aria-hidden="true">✦</span>
+              <span class="ticker-word">DESIGN SYSTEMS</span>
+              <span class="ticker-star" aria-hidden="true">✦</span>
+              <span class="ticker-word">USER RESEARCH</span>
+              <span class="ticker-star" aria-hidden="true">✦</span>
+              <span class="ticker-word">WEB DEVELOPMENT</span>
+              <span class="ticker-star" aria-hidden="true">✦</span>
+              <span class="ticker-word">PROTOTYPING</span>
+              <span class="ticker-star" aria-hidden="true">✦</span>
+              <span class="ticker-word">PRODUCT STRATEGY</span>
+              <span class="ticker-star" aria-hidden="true">✦</span>
+              </div>
+              <div class="running-group" aria-hidden="true">
+              <span class="ticker-word">PRODUCT DESIGN</span>
+              <span class="ticker-star" aria-hidden="true">✦</span>
+              <span class="ticker-word">UI/UX SPECIALIST</span>
+              <span class="ticker-star" aria-hidden="true">✦</span>
+              <span class="ticker-word">DESIGN SYSTEMS</span>
+              <span class="ticker-star" aria-hidden="true">✦</span>
+              <span class="ticker-word">USER RESEARCH</span>
+              <span class="ticker-star" aria-hidden="true">✦</span>
+              <span class="ticker-word">WEB DEVELOPMENT</span>
+              <span class="ticker-star" aria-hidden="true">✦</span>
+              <span class="ticker-word">PROTOTYPING</span>
+              <span class="ticker-star" aria-hidden="true">✦</span>
+              <span class="ticker-word">PRODUCT STRATEGY</span>
+              <span class="ticker-star" aria-hidden="true">✦</span>
+              </div>
+            </div>
+          </div>
         </div>
       </section>
 
@@ -339,8 +449,8 @@
                     <span
                       class="accordion-badge"
                       style="
-                        background: rgba(245, 79, 27, 0.15);
-                        border-color: rgba(245, 79, 27, 0.4);
+                        background: rgba(215, 255, 0, 0.15);
+                        border-color: rgba(215, 255, 0, 0.4);
                         color: var(--accent-orange);
                       "
                       >Research</span
@@ -383,8 +493,8 @@
                     <span
                       class="accordion-badge"
                       style="
-                        background: rgba(245, 79, 27, 0.15);
-                        border-color: rgba(245, 79, 27, 0.4);
+                        background: rgba(215, 255, 0, 0.15);
+                        border-color: rgba(215, 255, 0, 0.4);
                         color: var(--accent-orange);
                       "
                       >Trainer</span
@@ -397,6 +507,20 @@
                   Mentoring aspiring designers, leading UI/UX bootcamps, and
                   coaching teams on modern design systems, Figma workflows, and
                   design thinking.
+                </div>
+              </details>
+
+              <!-- Item 5: Graphic Design -->
+              <details class="accordion-item">
+                <summary class="accordion-summary">
+                  <div class="accordion-title-wrap">
+                    <span class="accordion-badge">Visual</span>
+                    <span class="accordion-title">Graphic Design</span>
+                  </div>
+                  <i class="ph ph-caret-down accordion-icon"></i>
+                </summary>
+                <div class="accordion-content">
+                  Creating clear visual communication through graphic assets, social media creatives, presentation layouts, and supporting brand materials that keep digital products and campaigns visually consistent.
                 </div>
               </details>
             </div>
